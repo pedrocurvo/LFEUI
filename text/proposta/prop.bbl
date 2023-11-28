@@ -1,0 +1,72 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{article1}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8dc04ff621e296102c5bfb064e6bbad8}{%
+           family={Author1},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \strng{fullhash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \strng{bibnamehash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \strng{authorbibnamehash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \strng{authornamehash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \strng{authorfullhash}{8dc04ff621e296102c5bfb064e6bbad8}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal Name}
+      \field{title}{Title of the Article}
+      \field{volume}{1}
+      \field{year}{2023}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+    \endentry
+    \entry{book1}{book}{}
+      \name{author}{1}{}{%
+        {{hash=28838f9ecfa24a845f4d664448eb2308}{%
+           family={Author2},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Publisher Name}%
+      }
+      \strng{namehash}{28838f9ecfa24a845f4d664448eb2308}
+      \strng{fullhash}{28838f9ecfa24a845f4d664448eb2308}
+      \strng{bibnamehash}{28838f9ecfa24a845f4d664448eb2308}
+      \strng{authorbibnamehash}{28838f9ecfa24a845f4d664448eb2308}
+      \strng{authornamehash}{28838f9ecfa24a845f4d664448eb2308}
+      \strng{authorfullhash}{28838f9ecfa24a845f4d664448eb2308}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Book Title}
+      \field{year}{2021}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
