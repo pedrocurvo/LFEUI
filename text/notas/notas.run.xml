@@ -79,7 +79,7 @@
       <file>notas.bcf</file>
     </requires>
     <requires type="editable">
-      <file>../references/prop.bib</file>
+      <file>../references/biliografia.bib</file>
     </requires>
   </external>
 </requests>

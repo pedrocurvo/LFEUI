@@ -11,12 +11,14 @@
     \end{tabular}
 }
 
+\usepackage[style=numeric]{biblatex} % Choose your desired citation style
+\addbibresource{../references/prop.bib} % Specify your .bib file
+
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[letterpaper,top=6mm,bottom=15mm,left=6mm,right=6mm,marginparwidth=1.55cm]{geometry}
 \usepackage{multicol}
 \usepackage{graphicx}
-\usepackage{biblatex}
 \usepackage{subcaption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -72,22 +74,22 @@
 \usetikzlibrary{shapes.geometric, arrows}
 
 
-\lstset{
-    language=Python,
-    basicstyle=\ttfamily,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{orange},
-    numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    showspaces=false,
-    showstringspaces=false,
-    breaklines=true,
-    frame=tb,
-    framexleftmargin=2em,
-    xleftmargin=2em,
-}
+% \lstset{
+%     language=Python,
+%     basicstyle=\ttfamily,
+%     keywordstyle=\color{blue},
+%     commentstyle=\color{gray},
+%     stringstyle=\color{orange},
+%     numbers=left,
+%     numberstyle=\tiny,
+%     numbersep=5pt,
+%     showspaces=false,
+%     showstringspaces=false,
+%     breaklines=true,
+%     frame=tb,
+%     framexleftmargin=2em,
+%     xleftmargin=2em,
+% }
 
 
 %\usepackage{fontspec}
@@ -141,10 +143,6 @@ LFEUI - Investigation Proposal \\ {\fontsize{24}{16}Detection of Li in Technolog
 
 \titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
 
-
-
-% \usepackage[style=numeric]{biblatex} % Choose your desired citation style
-\addbibresource{../references/prop.bib} % Specify your .bib file
 
 \setlist[enumerate]{itemsep=3pt}
 
