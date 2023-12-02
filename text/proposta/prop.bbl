@@ -19,6 +19,16 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{IST}{misc}{}
+      \list{location}{1}{%
+        {Estrada Nacional 10 (km 139,7), 2695-066 Bobadela LRS, Portugal}%
+      }
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{title}{{CAMPUS TECNOLÓGICO E NUCLEAR, Instituto Superior Técnico, Universidade de Lisboa}}
+      \true{nocite}
+    \endentry
     \entry{feldman1986}{book}{}
       \name{author}{2}{}{%
         {{hash=45bbf06b656906d64ada48b1fc4b9ca4}{%
