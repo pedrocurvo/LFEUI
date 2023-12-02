@@ -27,7 +27,6 @@
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labeltitlesource}{title}
       \field{title}{{CAMPUS TECNOLÓGICO E NUCLEAR, Instituto Superior Técnico, Universidade de Lisboa}}
-      \true{nocite}
     \endentry
     \entry{feldman1986}{book}{}
       \name{author}{2}{}{%
@@ -102,7 +101,13 @@
       \field{labeltitlesource}{title}
       \field{title}{Introductory Nuclear Physics}
       \field{year}{1988}
-      \true{nocite}
+    \endentry
+    \entry{NRAEnergyCalc}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.se.ctn.tecnico.ulisboa.pt/FisNuclear/NRA.html}}
+      \field{title}{{Nuclear Reaction Analysis (NRA) Energy Calculator}}
     \endentry
   \enddatalist
 \endrefsection
