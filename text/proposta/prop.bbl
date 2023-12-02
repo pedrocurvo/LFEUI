@@ -59,6 +59,27 @@
       \field{year}{1986}
       \true{nocite}
     \endentry
+    \entry{IAEA_EXFOR}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a120b3091ba982e2e21b4d053f5ff51e}{%
+           family={{International Atomic Energy Agency}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \strng{fullhash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \strng{bibnamehash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \strng{authorbibnamehash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \strng{authornamehash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \strng{authorfullhash}{a120b3091ba982e2e21b4d053f5ff51e}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Nuclear Data Services}
+      \field{note}{Retrieved from \url{https://www-nds.iaea.org/exfor/ibandl.htm}}
+      \field{title}{{Experimental Nuclear Reaction Data (EXFOR)}}
+      \true{nocite}
+    \endentry
     \entry{krane1988}{book}{}
       \name{author}{1}{}{%
         {{hash=64da2dfacb552fdff861e21b3e047ea6}{%
