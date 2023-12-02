@@ -238,19 +238,24 @@ evolve the following steps:
 \begin{enumerate}
   \item Accelerator Startup;
   \item Calibration of the detectors with a sample of known composition;
-  \item Obtaining the energy spectrums of both samples;
+  \item Obtaining the energy spectrums of both samples with the appropriate beam energy;
   \item Analysis of the results.
 \end{enumerate}
 
 \paragraph*{Beam Energy}
 
-In order to choose the energy of the beam we need to take into account the cross section of the reaction between the the protons and the Li-7. We
+In order to choose the energy of the beam we need to take into account the cross section of the reaction between the the protons and the Li-7.
+We collected data from the IBANDL \cite{IAEA_EXFOR} database for this reaction in a range of $[0.5,7]$ MeV and plotted it in the following graph:
 
 \begin{center}
   \includegraphics[width=0.95\linewidth]{../images/Li_crosssection_energy.jpeg}
   \captionof{figure}{Cross section of the reaction between protons and Li-7 as a function of the beam energy.}
+  \label{fig:crosssection}
 \end{center}
 
+We are only interested in the energy range of $[0.5,5]$ MeV because the energy of the beam is limited by the accelerator.
+As we can see in figure \ref{fig:crosssection}, the cross section of the reaction is maximum in the $[2.5,3]$ MeV range. 
+Therefore, since we want to detect the Li-7 in the samples, we should choose the energy of the beam to be in this range.
 
 \section{Safety considerations}
 

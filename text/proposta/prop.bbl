@@ -78,7 +78,6 @@
       \field{howpublished}{Nuclear Data Services}
       \field{note}{Retrieved from \url{https://www-nds.iaea.org/exfor/ibandl.htm}}
       \field{title}{{Experimental Nuclear Reaction Data (EXFOR)}}
-      \true{nocite}
     \endentry
     \entry{krane1988}{book}{}
       \name{author}{1}{}{%
