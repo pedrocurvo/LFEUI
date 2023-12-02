@@ -13,7 +13,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage[letterpaper,top=10mm,bottom=15mm,left=10mm,right=10mm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,top=6mm,bottom=15mm,left=6mm,right=6mm,marginparwidth=1.55cm]{geometry}
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -131,7 +131,7 @@
 
 
 \title{\vspace{-13mm}\includegraphics[width=15mm,scale=3]{../images/IST_Logo.png}\\ \vspace{5mm}
-LFEUI - Investigation Proposal \\ \vspace{4mm} {\fontsize{24}{16}Detection of Li in Technological Materials through Nuclear Reactions} \vspace{-1mm}}
+LFEUI - Investigation Proposal \\ \vspace{0mm} {\fontsize{24}{16}Detection of Li in Technological Materials through Nuclear Reactions} \vspace{-0mm}}
 \date{November 2023}
 
 \usepackage{sansmathfonts}
@@ -165,18 +165,18 @@ LFEUI - Investigation Proposal \\ \vspace{4mm} {\fontsize{24}{16}Detection of Li
 
 \hrulefill
 
-\begin{center}
-  \textbf{\Large Abstract}
-\end{center}
+% \begin{center}
+%   \textbf{\Large Abstract}
+% \end{center}
 
-% \begin{abstract}
-%   \par textvtgerthrt
-% \end{abstract}
-
-\par In the following document we present a proposal for a scientific research being developed at CTN Lisbon. We will...
-
-
-\vspace{4.0mm}
+\vspace{-0.1cm}
+\begin{abstract}
+  \par In the following document we present a proposal for a scientific research being developed at CTN Lisbon in December 2023.
+  Our work consists of the detection of $\ce{^7Li}$ in two different samples through nuclear reactions.
+  This document describes the time required for the project as well as it's goals, theoretical background, experimental technique, safety considerations and expected results.
+  In addition, we also present a brief description of the experimental set-up.
+\end{abstract}
+\vspace{-0.1cm}
 
 \hrulefill
 
@@ -202,7 +202,7 @@ This detection method is based on the nuclear reaction between the element we wa
 
 \begin{equation}
   \ce{^7Li + ^1H -> ^8Be -> 2\alpha}
-  \label{eq:reaction}
+\label{eq:reaction}
 \end{equation}
 
 The reaction results in the production of a $\ce{^8Be}$ nucleus which then rapidly decays into two alpha particles. These are the particles we detect.
@@ -242,7 +242,7 @@ Note: We use a tandem accelerator, so the image should have 2 tubes inside the a
 \begin{center}
   \includegraphics[width=0.95\linewidth]{../images/scheme.jpeg}
   \captionof{figure}{Experimental set-up.}
-  \label{fig:setup}
+\label{fig:setup}
 \end{center}
 
 \paragraph{Samples}
@@ -270,7 +270,7 @@ We collected data from the IBANDL \cite{IAEA_EXFOR} database for this reaction i
 \begin{center}
   \includegraphics[width=0.95\linewidth]{../images/Li_crosssection_energy.jpeg}
   \captionof{figure}{Cross section of the reaction between protons and Li-7 as a function of the beam energy.}
-  \label{fig:crosssection}
+\label{fig:crosssection}
 \end{center}
 
 We are only interested in the energy range of $[0.5,5]$ MeV because the energy of the beam is limited by the accelerator.
@@ -308,7 +308,7 @@ therefore have lost different amounts of energy. In the implant samples, we expe
 to the energy of the alpha particles produced by the reaction.
 In both cases, the samples are composed by other types of atoms such as silicon and boron, which will also emit charged
 particles. By obtaining the expected energy spectrums we can infer the presence of Li in the samples. If possible we will also try
-to quantify the amount of Li present by analysing the amout of energy deposited in the spectrums.
+to quantify the amount of Li present by analyzing the amount of energy deposited in the spectrums.
 
 \paragraph*{Energy Values} The alpha particles are supposed to have the energies calculated in equation \ref{eq:energies} ($E_{\alpha_1}$ and $E_{\alpha_2}$). 
 In the glass sample, we expect to see an energy profile before each peak and in the implant sample we only expect to see the peaks.
