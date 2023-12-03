@@ -41,7 +41,7 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
       <file>notas.bcf</file>
@@ -60,7 +60,7 @@
       <file>portuguese.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="0">
+  <external package="biblatex" priority="5" active="1">
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
@@ -79,7 +79,7 @@
       <file>notas.bcf</file>
     </requires>
     <requires type="editable">
-      <file>../references/prop.bib</file>
+      <file>../references/biliografia.bib</file>
     </requires>
   </external>
 </requests>
