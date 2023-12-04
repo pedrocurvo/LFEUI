@@ -12,3 +12,6 @@
 **.out
 **.exe
 **.lof
+**.ilg
+**.fls
+**.fdb_latexmk
