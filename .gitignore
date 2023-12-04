@@ -1,2 +1,14 @@
-**run.xml
-**synctex.gz
+**.run.xml
+**.synctex.gz
+**.log
+**.aux
+**.bbl
+**.blg
+**.toc
+**.idx
+**.ind
+**.bcf
+**.bbl
+**.out
+**.exe
+**.lof

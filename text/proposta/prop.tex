@@ -3,6 +3,7 @@
 % pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
 
 \documentclass{article}
+\input{./preamble}
 
 \author{
     \begin{tabular}{rl}
@@ -11,143 +12,7 @@
     \end{tabular}
 }
 
-\usepackage[style=numeric]{biblatex} % Choose your desired citation style
-\addbibresource{../references/prop.bib} % Specify your .bib file
 
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[letterpaper,top=6mm,bottom=15mm,left=6mm,right=6mm,marginparwidth=1.55cm]{geometry}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{makecell}
-\usepackage{titlesec}
-\usepackage{multirow}
-\usepackage{amsmath}
-\usepackage{makecell}
-\usepackage{url}
-\usepackage{csquotes}
-\usepackage{caption}
-\usepackage{enumitem}
-\usepackage{textcomp}
-\usepackage{pdflscape}
-\usepackage{makeidx}
-% \usepackage{tocbibind}
-\providecommand{\tightlist}{\relax}
-\usepackage{tocloft}
-\renewcommand{\cftsecindent}{0em}
-\renewcommand{\cftsubsecindent}{1em}
-\renewcommand{\cftsecfont}{\bfseries}
-\renewcommand{\cftsubsecfont}{\itshape}
-\setlength{\cftsubsecnumwidth}{0em}
-
-\usepackage[version=4]{mhchem}
-\usepackage{hyperref} % Remove "pdftex" option here
-\usepackage{float}
-\usepackage{fancyhdr}
-\usepackage{ragged2e}
-\usepackage{xkeyval}
-%\usepackage{minted}
-%\usemintedstyle{manni}
-\usepackage{listings}
-\usepackage{amssymb}
-\usepackage{bookmark}
-\usepackage{hyperref}
-\usepackage{cleveref}
-
-
-\usepackage{xcolor}
-\usepackage{tikz}
-
-\usetikzlibrary{positioning}
-\usetikzlibrary{positioning, arrows.meta}
-\usepackage{adjustbox}
-\usepackage{sidecap}
-\usepackage{graphicx}
-
-\usepackage{tikz-3dplot}
-\usepackage{pgfplots}
-\usetikzlibrary{calc, 3d, arrows}
-
-
-
-\usetikzlibrary{shapes.geometric, arrows}
-
-
-% \lstset{
-%     language=Python,
-%     basicstyle=\ttfamily,
-%     keywordstyle=\color{blue},
-%     commentstyle=\color{gray},
-%     stringstyle=\color{orange},
-%     numbers=left,
-%     numberstyle=\tiny,
-%     numbersep=5pt,
-%     showspaces=false,
-%     showstringspaces=false,
-%     breaklines=true,
-%     frame=tb,
-%     framexleftmargin=2em,
-%     xleftmargin=2em,
-% }
-
-
-%\usepackage{fontspec}
-
-%\setmonofont{Fira Code}
-
-\fancyhf{}
-\cfoot{\thepage}
-\fancyhf{} % Clear all header and footer fields
-\renewcommand{\headrulewidth}{0pt} % Remove the header rule line
-\cfoot{\thepage} % Set the page number in the center of the footer
-
-\pagestyle{fancy} % Apply the fancy page style
-
-\setlength\columnsep{20pt}
-
-\renewcommand{\familydefault}{\sfdefault}
-
-\newenvironment{Figure}
-  {\par\medskip\noindent\minipage{\linewidth}}
-  {\endminipage\par\medskip}
-
-\makeatletter
-\newenvironment{figurehere}
-{\def\@captype{figure}}
-{}
-\makeatother
-
-\hypersetup{
-  colorlinks,
-  linkcolor=blue,
-  anchorcolor=black,
-  citecolor=cyan,
-  filecolor=cyan,
-  menucolor=cyan,
-  urlcolor=cyan,
-  bookmarksopen=true,
-  bookmarksnumbered=true
-}
-
-\makeindex
-
-
-\title{\vspace{-13mm}\includegraphics[width=15mm,scale=3]{../images/IST_Logo.png}\\ \vspace{5mm}
-LFEUI - Investigation Proposal \\ {\fontsize{24}{16}Detection of Li in Technological Materials through Nuclear Reactions} \vspace{-0mm}}
-\date{November 2023}
-
-\usepackage{sansmathfonts}
-\usepackage[T1]{fontenc}
-\usepackage[OT1]{fontenc}
-
-\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
-
-
-\setlist[enumerate]{itemsep=3pt}
 
 \begin{document}
 
