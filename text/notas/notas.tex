@@ -2,6 +2,9 @@
 % RUN in terminal (without bibliography):
 % pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
 
+% limpar:
+% latexmk -c
+
 \documentclass{article}
 
 \author{
@@ -143,7 +146,7 @@ LFEUI - Notas Teóricas \vspace{-5mm}}
 
 
 \usepackage[style=numeric]{biblatex} % Choose your desired citation style
-\addbibresource{../references/biliografia.bib} % Specify your .bib file
+\addbibresource{../references/prop.bib} % Specify your .bib file
 
 \begin{document}
 
@@ -262,6 +265,58 @@ A maior parte das partículas alfa são detetadas com o valor de energia esperad
   \item Baterias - lítio 7;
   \item Indústria Farmaceûtica - lítio é utilizado em vários medicamentos;
 \end{enumerate}
+
+\section{Fenómenos}
+
+Existem 3 fenómenos diferentes que acontecem nas nossas amostras quando os seus atómos colidem com os protões do feixe: reação nuclear, RBS e elastic backscattering.
+Cada um destes 3 fenómenos possui uma secção eficaz diferente - a secção eficaz é uma medida da probabilidade de um dado fenómeno acontecer.
+A secção eficaz do RBS e do elastic backscattering são maiores do que a secção eficaz da reação nuclear - isto significa que a probabilidade de um protão colidir com um átomo da amostra e ser refletido é maior do que a probabilidade de um protão colidir com um átomo da amostra e reagir com ele.
+Nos espetros detetados podemos ver uma 'bossa' inicial que corresponde ao RBS e ao elastic backscattering e depois vemos um pico que corresponde à reação nuclear do lítio 7 com o protão.
+A seguinte fórmula é válida para a geometria da nossa experiência, sendo apenas necessário aplicá-la para cada uma das 3 secções eficazes:
+
+\[ A = \left( \frac{q_{\text{beam}}}{e} \right) \Omega \overline{\sigma} (N \Delta x) \]
+
+\section{Pico de Reação Nuclear}
+
+Existem 2 picos teóricos esperados no espetro devido à reação nuclear entre o lítio e o protão.
+O feixe que utilizamos na atividade experimental possui uma energia de 1.3 MeV - a zona de energia dos protões que maximiza a intensidade deste pico é de $[2.5,3]$ MeV, no entanto, não conseguimos alcançar estas energias com o nosso acelerador (apesar de teoricamente serem possíveis). 
+Para além disto estamos também interessados em detetar uma possível presença de boro nas amostras e o boro não reage com protões de tão elevada energia - assim escohemos uma energia onde tanto o lítio como o boro reagem com os protões: 1.3 MeV.
+
+\paragraph*{Cálculo do Valor}
+
+Recorremos ao NRA calculator para calcular o valor dos picos de reação nuclear para o lítio 7 e para o boro 11.
+Usamos 1.3 MeV para os protões incidentes, 165 graus para o ângulo de scattering do detetor e obtivemos os seguintes valores:
+
+\begin{equation}
+\begin{split}
+  E_{\alpha_{0_1}} &= 7.6298 \text{ MeV} \\
+  E_{\alpha_{0_2}} &= 11.0314 \text{ MeV} \\
+  \theta_{\alpha_{0_1}} &= 165 \\
+  \theta_{\alpha_{0_2}} &= 12 \\
+  Q (\ce{^7Li}) &= 17.346 \text{ MeV} \\
+\end{split}
+\label{eq:energiesli}
+\end{equation}
+
+Para o lítio não temos partículas $\alpha_1$ uma vez que: $\alpha_0$ são partículas alfa no estado fundamental e $\alpha_1$ são partículas alfa no estado excitado - a energia que temos no feixe não é suficiente para excitar as partículas alfa e por isso elas apenas são emitidas no estado fundamental.
+Os átomos de hélio 4 são ultra estáveis e o primeiro estado excitado está muito acima do estado fundamental - a energia necessária para excitar as partículas alfa é muito elevada e por isso não temos partículas alfa no estado excitado.
+\paragraph{} Note-se também que o ângulo de scattering para a segunda partícula alfa $\alpha_{0_2}$ é de 12 graus, ângulo no qual não há detetor, logo, apenas vamos detetar um pico de partículas em 7.6298 MeV.
+
+\paragraph*{} Para o boro temos:
+
+\begin{equation}
+\begin{split}
+  E_{\alpha_0} &= 3.7372 \text{ MeV} \\
+  E_{\ce{^8Be}} &= 3.1086 \text{ MeV} \\
+  \theta_{\alpha_0} &= 165 \\
+  \theta_{\ce{Be8}} &= 11 \\
+  Q (\ce{^11Br}) &= 8.591 \text{ MeV} \\
+\end{split}
+\label{eq:energiesBr}
+\end{equation}
+
+
+
 
 \printbibliography
 \nocite{*}
