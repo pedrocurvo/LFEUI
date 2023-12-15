@@ -187,6 +187,18 @@ def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
 x = np.linspace(500, 700, 200)
 y = TT21_Chn0[500:700]
 plt.plot(x, y, label='data') 
+# curve fit
+popt, pcov = curve_fit(gaussian, x, y, p0=[100, 550, 1, 100, 580, 1, 100, 610, 1, 0])
+plt.plot(x, gaussian(x, *popt), label='fit')
+plt.legend()
+plt.title('TT_21')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.yscale('log')
+plt.xlim(500, 700)
+#plt.savefig('TT_21_Chn0_fit.png')
+plt.show()
+
 
 
 
