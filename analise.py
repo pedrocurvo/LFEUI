@@ -184,8 +184,10 @@ def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
     return a1*np.exp(-(x-x01)**2/(2*sigma1**2)) + a2*np.exp(-(x-x02)**2/(2*sigma2**2)) + a3*np.exp(-(x-x03)**2/(2*sigma3**2)) + c
 
 # Peaks
-x = np.linspace(500, 700, 1000)
+x = np.linspace(500, 700, 200)
 y = TT21_Chn0[500:700]
+plt.plot(x, y, label='data') 
+
 
 
 # valores de energia para os 3 picos
