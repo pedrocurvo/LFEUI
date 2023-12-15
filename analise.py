@@ -188,7 +188,7 @@ x = np.linspace(500, 700, 1000)
 y = TT21_Chn0[500:700]
 
 
-
+# valores de energia para os 3 picos
 energy = np.array(5156.59, 5485.56, 5804.82)
 
 
