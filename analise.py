@@ -1,6 +1,7 @@
 import numpy as np
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 
 # Function to read the data from the file
 def reader (name, Chn):
@@ -55,5 +56,143 @@ TT26_Chn2 = reader('data/TT_26/UNFILTERED/CH2@N6781_21198_Espectrum_TT_26_202312
 TT27_Chn0 = reader('data/TT_27/UNFILTERED/CH0@N6781_21198_Espectrum_TT_27_20231207_160722.n42', 0)
 TT27_Chn1 = reader('data/TT_27/UNFILTERED/CH1@N6781_21198_Espectrum_TT_27_20231207_160722.n42', 1)
 TT27_Chn2 = reader('data/TT_27/UNFILTERED/CH2@N6781_21198_Espectrum_TT_27_20231207_160722.n42', 2)
+
+
+# Plotting the data
+
+# TT_20
+plt.figure()
+plt.plot(TT20_Chn0, label='Chnannel 0')
+plt.plot(TT20_Chn1, label='Channel 1')
+plt.plot(TT20_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_20')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_20.png')    
+plt.show()
+
+# TT_21
+plt.figure()
+plt.plot(TT21_Chn0, label='Chnannel 0')
+plt.plot(TT21_Chn1, label='Channel 1')
+plt.plot(TT21_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_21')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_21.png')
+plt.show()
+
+# TT_22
+plt.figure()
+plt.plot(TT22_Chn0, label='Chnannel 0')
+plt.plot(TT22_Chn1, label='Channel 1')
+plt.plot(TT22_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_22')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_22.png')
+plt.show()
+
+# TT_23
+plt.figure()
+plt.plot(TT23_Chn0, label='Chnannel 0')
+plt.plot(TT23_Chn1, label='Channel 1')
+plt.plot(TT23_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_23')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_23.png')
+plt.show()
+
+# TT_24
+plt.figure()
+plt.plot(TT24_Chn0, label='Chnannel 0')
+plt.plot(TT24_Chn1, label='Channel 1')
+plt.plot(TT24_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_24')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_24.png')
+plt.show()
+
+# TT_25
+plt.figure()
+plt.plot(TT25_Chn0, label='Chnannel 0')
+plt.plot(TT25_Chn1, label='Channel 1')
+plt.plot(TT25_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_25')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_25.png')
+plt.show()
+
+# TT_26
+plt.figure()
+plt.plot(TT26_Chn0, label='Chnnanel 0')
+plt.plot(TT26_Chn1, label='Channel 1')
+plt.plot(TT26_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_26')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_26.png')
+plt.show()
+
+# TT_27
+plt.figure()
+plt.plot(TT27_Chn0, label='Chnannel 0')
+plt.plot(TT27_Chn1, label='Channel 1')
+plt.plot(TT27_Chn2, label='Channel 2')
+plt.legend()
+plt.title('TT_27')
+plt.yscale('log')
+plt.xlabel('Channel')
+plt.ylabel('Counts')
+plt.savefig('TT_27.png')
+plt.show()
+
+# Calibration
+
+# For the calibration we will use the data from the TT_21 file
+
+plt.figure()
+plt.plot(TT21_Chn0, label='Chnannel 0')
+plt.legend()
+plt.title('TT_21')
+plt.xlabel('Channel')
+plt.yscale('log')
+plt.ylabel('Counts')
+plt.xlim(500, 700)
+plt.savefig('TT_21_Chn0.png')
+plt.show()
+
+# Gaussian fit for the peaks (soma 3 de gaussianas)
+def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
+    return a1*np.exp(-(x-x01)**2/(2*sigma1**2)) + a2*np.exp(-(x-x02)**2/(2*sigma2**2)) + a3*np.exp(-(x-x03)**2/(2*sigma3**2)) + c
+
+# Peaks
+x = np.linspace(500, 700, 1000)
+y = TT21_Chn0[500:700]
+
+
+
+
+energy = np.array(5156.59, 5485.56, 5804.82)
+
+
+
 
 
