@@ -1,7 +1,7 @@
 import numpy as np
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
-import scipy as scipy
+from scipy.optimize import curve_fit
 
 # Function to read the data from the file
 def reader (name, Chn):
@@ -59,7 +59,19 @@ x = np.array(range(500, 701))
 print(x)
 y = TT21_Chn0[500:700]
 print(y)
-scipy.optimize.curve_fit(gaussian, x,y)
+popt, popcov = curve_fit(gaussian, x,y)
+
+plt.figure()
+plt.plot(TT21_Chn0, label='Chnannel 0')
+plt.plot(x, gaussian(x, *popt), label='Chnannel 0 fit')
+plt.legend()
+plt.xlabel('Channel')
+plt.yscale('log')
+plt.ylabel('Counts')
+plt.xlim(500, 700)
+plt.ylim(1, 1e3)
+plt.savefig('TT_21_Chn0.png')
+plt.show()
 
 # valores de energia para os 3 picos
 energy = np.array([5156.59, 5485.56, 5804.82])
