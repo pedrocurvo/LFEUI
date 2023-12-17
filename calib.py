@@ -122,6 +122,8 @@ a3 = np.array([popt2[0], popt2[3], popt2[6]])
 # Calibração (channel 0)
 params0, params_cov0 = curve_fit(linear, x0, energy)
 errors0 = np.sqrt(np.diag(params_cov0))
+m0 = params0[0]
+c0 = params0[1]
 
 plt.figure()
 plt.plot(x0, energy, 'o', label='data')
@@ -133,13 +135,13 @@ plt.ylabel('Energy (keV)')
 plt.savefig('TT_21_Chn0_calib.png')
 plt.show()
 
-m0 = params0[0]
-c0 = params0[1]
 print(f'Calibração_0: E = {m0:.2f} * Chn + {c0:.2f}')
 
 # Calibração (channel 1)
 params1, params_cov1 = curve_fit(linear, x1, energy)
 errors1 = np.sqrt(np.diag(params_cov1))
+m1 = params1[0]
+c1 = params1[1]
 
 plt.figure()
 plt.plot(x1, energy, 'o', label='data')
@@ -148,16 +150,17 @@ plt.title('Calibration channel 1')
 plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy (keV)')
+plt.text(560, 5500, f'E = {m1:.2f} * Chn + {c1:.2f}')
 plt.savefig('TT_21_Chn1_calib.png')
 plt.show()
 
-m1 = params1[0]
-c1 = params1[1]
 print(f'Calibração_1: E = {m1:.2f} * Chn + {c1:.2f}')
 
 # Calibração (channel 2)
 params2, params_cov2 = curve_fit(linear, x2, energy)
 errors2 = np.sqrt(np.diag(params_cov2))
+m2 = params2[0]
+c2 = params2[1]
 
 plt.figure()
 plt.plot(x2, energy, 'o', label='data')
@@ -169,6 +172,4 @@ plt.ylabel('Energy (keV)')
 plt.savefig('TT_21_Chn2_calib.png')
 plt.show()
 
-m2 = params2[0]
-c2 = params2[1]
 print(f'Calibração_2: E = {m2:.2f} * Chn + {c2:.2f}')
