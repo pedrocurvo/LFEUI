@@ -42,7 +42,7 @@ plt.show()
 def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
     return a1*np.exp(-(x-x01)**2/(2*sigma1**2)) + a2*np.exp(-(x-x02)**2/(2*sigma2**2)) + a3*np.exp(-(x-x03)**2/(2*sigma3**2)) + c
 
-# Peaks
+# Channel 0
 x = np.array(range(545, 650))
 y = TT21_Chn0[545:650]
 # curve fit
@@ -60,6 +60,45 @@ plt.xlim(500, 700)
 plt.ylim(1, 1e2)
 plt.savefig('TT_21_Chn0.png')
 plt.show()
+
+# Channel 1
+x = np.array(range(545, 700))
+y = TT21_Chn1[545:700]
+# curve fit
+popt, pcov = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+
+plt.figure()
+plt.plot(TT21_Chn1, label='Chnannel 1')
+plt.plot(x, gaussian(x, *popt), label='Chnannel 1 fit')
+plt.title('Fit channel 1')
+plt.legend()
+plt.xlabel('Channel')
+plt.yscale('log')
+plt.ylabel('Counts')
+plt.xlim(500, 700)
+plt.ylim(1, 1e2)
+plt.savefig('TT_21_Chn1.png')
+plt.show()
+
+# Channel 2
+x = np.array(range(545, 700))
+y = TT21_Chn2[545:700]
+# curve fit
+popt, pcov = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+
+plt.figure()
+plt.plot(TT21_Chn2, label='Chnannel 2')
+plt.plot(x, gaussian(x, *popt), label='Chnannel 2 fit')
+plt.title('Fit channel 2')
+plt.legend()
+plt.xlabel('Channel')
+plt.yscale('log')
+plt.ylabel('Counts')
+plt.xlim(500, 700)
+plt.ylim(1, 1e2)
+plt.savefig('TT_21_Chn2.png')
+plt.show()
+
 
 # valores de energia para os 3 picos
 energy = np.array([5156.59, 5485.56, 5804.82])
