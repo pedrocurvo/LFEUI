@@ -46,11 +46,11 @@ def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
 x = np.array(range(545, 650))
 y = TT21_Chn0[545:650]
 # curve fit
-popt, pcov = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5, 0])
+popt0, pcov0 = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5, 0])
 
 plt.figure()
 plt.plot(TT21_Chn0, label='Chnannel 0')
-plt.plot(x, gaussian(x, *popt), label='Chnannel 0 fit')
+plt.plot(x, gaussian(x, *popt0), label='Chnannel 0 fit')
 plt.title('Fit channel 0')
 plt.legend()
 plt.xlabel('Channel')
@@ -65,11 +65,11 @@ plt.show()
 x = np.array(range(545, 700))
 y = TT21_Chn1[545:700]
 # curve fit
-popt, pcov = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+popt1, pcov1 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
 
 plt.figure()
 plt.plot(TT21_Chn1, label='Chnannel 1')
-plt.plot(x, gaussian(x, *popt), label='Chnannel 1 fit')
+plt.plot(x, gaussian(x, *popt1), label='Chnannel 1 fit')
 plt.title('Fit channel 1')
 plt.legend()
 plt.xlabel('Channel')
@@ -84,11 +84,11 @@ plt.show()
 x = np.array(range(545, 700))
 y = TT21_Chn2[545:700]
 # curve fit
-popt, pcov = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+popt2, pcov2 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
 
 plt.figure()
 plt.plot(TT21_Chn2, label='Chnannel 2')
-plt.plot(x, gaussian(x, *popt), label='Chnannel 2 fit')
+plt.plot(x, gaussian(x, *popt2), label='Chnannel 2 fit')
 plt.title('Fit channel 2')
 plt.legend()
 plt.xlabel('Channel')
@@ -102,3 +102,61 @@ plt.show()
 
 # valores de energia para os 3 picos
 energy = np.array([5156.59, 5485.56, 5804.82])
+
+# média das gaussianas
+x0 = np.array([popt0[1], popt0[4], popt0[7]])
+x1 = np.array([popt1[1], popt1[4], popt1[7]])
+x2 = np.array([popt2[1], popt2[4], popt2[7]])
+
+sigma0 = np.array([popt0[2], popt0[5], popt0[8]])
+sigma1 = np.array([popt1[2], popt1[5], popt1[8]])
+sigma2 = np.array([popt2[2], popt2[5], popt2[8]])
+
+def linear(x, m, c):
+    return m * x + c
+
+a1 = np.array([popt0[0], popt0[3], popt0[6]])
+a2 = np.array([popt1[0], popt1[3], popt1[6]])
+a3 = np.array([popt2[0], popt2[3], popt2[6]])
+
+# Calibração (channel 0)
+params0, params_cov0 = curve_fit(linear, x0, energy)
+errors0 = np.sqrt(np.diag(params_cov0))
+
+plt.figure()
+plt.plot(x0, energy, 'o', label='data')
+plt.plot(x0, linear(x0, *params0), label='fit')
+plt.title('Calibration channel 0')
+plt.legend()
+plt.xlabel('Channel')
+plt.ylabel('Energy (keV)')
+plt.savefig('TT_21_Chn0_calib.png')
+plt.show()
+
+# Calibração (channel 1)
+params1, params_cov1 = curve_fit(linear, x1, energy)
+errors1 = np.sqrt(np.diag(params_cov1))
+
+plt.figure()
+plt.plot(x1, energy, 'o', label='data')
+plt.plot(x1, linear(x1, *params1), label='fit')
+plt.title('Calibration channel 1')
+plt.legend()
+plt.xlabel('Channel')
+plt.ylabel('Energy (keV)')
+plt.savefig('TT_21_Chn1_calib.png')
+plt.show()
+
+# Calibração (channel 2)
+params2, params_cov2 = curve_fit(linear, x2, energy)
+errors2 = np.sqrt(np.diag(params_cov2))
+
+plt.figure()
+plt.plot(x2, energy, 'o', label='data')
+plt.plot(x2, linear(x2, *params2), label='fit')
+plt.title('Calibration channel 2')
+plt.legend()
+plt.xlabel('Channel')
+plt.ylabel('Energy (keV)')
+plt.savefig('TT_21_Chn2_calib.png')
+plt.show()
