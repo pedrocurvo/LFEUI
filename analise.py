@@ -145,7 +145,6 @@ plt.show()
 
 # TT_25
 plt.figure()
-plt.subplot(1, 3, 1)
 plt.plot(TT25_Chn0, label='Chnannel 0')
 plt.plot(TT25_Chn1, label='Channel 1')
 plt.plot(TT25_Chn2, label='Channel 2')
