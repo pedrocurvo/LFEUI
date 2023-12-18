@@ -2,23 +2,24 @@ import numpy as np
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from pathlib import Path
+from reader import reader
+import pandas as pd
 
-# Function to read the data from the file
-def reader (name, Chn):
-    # Parse the XML data from the file
-    tree = ET.parse(name)
-    root = tree.getroot()
-    # Access spectrum data
-    spectrum_data_str = root.find(f".//Spectrum[@id='RadMeasurement-{Chn}_Spectrum-{Chn}']/ChannelData").text
-    # Convert the spectrum data string to a vector of data
-    spectrum_data_array = np.array([float(value) for value in spectrum_data_str.split()])
-
-    return spectrum_data_array
+# Define paths
+# For the calibration we will use the data from the TT_21 file
+# data
+DATA_PATH = Path('data')
+# data folders
+TT_21_PATH = DATA_PATH / 'TT_21' / 'UNFILTERED'
+# image
+IMAGE_PATH = Path('images')
+IMAGE_PATH.mkdir(exist_ok=True, parents=True)
 
 # TT_21
-TT21_Chn0 = reader('data/TT_21/UNFILTERED/CH0@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 0)
-TT21_Chn1 = reader('data/TT_21/UNFILTERED/CH1@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 1)
-TT21_Chn2 = reader('data/TT_21/UNFILTERED/CH2@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 2)
+TT21_Chn0 = reader(TT_21_PATH/'CH0@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 0)
+TT21_Chn1 = reader(TT_21_PATH/'CH1@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 1)
+TT21_Chn2 = reader(TT_21_PATH/'CH2@N6781_21198_Espectrum_TT_21_20231207_143401.n42', 2)
 
 # TT_21
 plt.figure()
@@ -31,12 +32,16 @@ plt.yscale('log')
 plt.xlabel('Channel')
 plt.xlim(0, 1024)
 plt.ylabel('Counts')
-plt.savefig('TT_21.png')
+plt.savefig(IMAGE_PATH/'TT_21.png')
 plt.show()
 
 # Calibration
+# Define CSV file to keep the calibration data
+CALIB_PATH = Path('data')
+CALIB_PATH.mkdir(exist_ok=True, parents=True)
+CALIB_FILE = CALIB_PATH / 'calibration.csv'
+df = pd.DataFrame(columns=['m', 'c', 'error_m', 'error_c'])
 
-# For the calibration we will use the data from the TT_21 file
 
 # Gaussian fit for the peaks (soma 3 de gaussianas)
 def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
@@ -58,7 +63,7 @@ plt.yscale('log')
 plt.ylabel('Counts')
 plt.xlim(500, 700)
 plt.ylim(1, 1e2)
-plt.savefig('TT_21_Chn0.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn0.png')
 plt.show()
 
 # Channel 1
@@ -77,7 +82,7 @@ plt.yscale('log')
 plt.ylabel('Counts')
 plt.xlim(500, 700)
 plt.ylim(1, 1e2)
-plt.savefig('TT_21_Chn1.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn1.png')
 plt.show()
 
 # Channel 2
@@ -96,7 +101,7 @@ plt.yscale('log')
 plt.ylabel('Counts')
 plt.xlim(500, 700)
 plt.ylim(1, 1e2)
-plt.savefig('TT_21_Chn2.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn2.png')
 plt.show()
 
 
@@ -133,7 +138,7 @@ plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy (keV)')
 plt.text(560, 5600, f'E = ({m0:.2f} ± {errors0[0]:.2f}) * Chn + {c0:.2f} ± {errors0[1]:.2f}', fontsize=10)
-plt.savefig('TT_21_Chn0_calib.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn0_calib.png')
 plt.show()
 
 print(f'Calibração_0: E = ({m0:.2f} ± {errors0[0]:.2f}) * Chn + {c0:.2f} ± {errors0[1]:.2f}')
@@ -152,11 +157,11 @@ plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy (keV)')
 plt.text(570, 5600, f'E = ({m1:.2f} ± {errors1[0]:.2f}) * Chn + {c1:.2f} ± {errors1[1]:.2f}', fontsize=10)
-plt.savefig('TT_21_Chn1_calib.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn1_calib.png')
 plt.show()
 
 print(f'Calibração_1: E = ({m1:.2f} ± {errors1[0]:.2f}) * Chn + {c1:.2f} ± {errors1[1]:.2f}')
-
+df._append({'m': m1, 'c': c1, 'error_m': errors1[0], 'error_c': errors1[1]}, ignore_index=True)
 # Calibração (channel 2)
 params2, params_cov2 = curve_fit(linear, x2, energy)
 errors2 = np.sqrt(np.diag(params_cov2))
@@ -171,8 +176,10 @@ plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy (keV)')
 plt.text(565, 5600, f'E = ({m2:.2f} ± {errors2[0]:.2f}* Chn + {c2:.2f}) ± {errors2[1]:.2f}', fontsize=10)
-plt.savefig('TT_21_Chn2_calib.png')
+plt.savefig(IMAGE_PATH/'TT_21_Chn2_calib.png')
 plt.show()
 
 print(f'Calibração_2: E = ({m2:.2f} ± {errors2[0]:.2f}) * Chn + {c2:.2f} ± {errors2[1]:.2f}')
+df._append({'m': m2, 'c': c2, 'error_m': errors2[0], 'error_c': errors2[1]}, ignore_index=True)
+df.to_csv(CALIB_FILE, index=False)
 
