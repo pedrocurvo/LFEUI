@@ -48,8 +48,8 @@ def gaussian(x, a1, x01, sigma1, a2, x02, sigma2, a3, x03, sigma3, c):
     return a1*np.exp(-(x-x01)**2/(2*sigma1**2)) + a2*np.exp(-(x-x02)**2/(2*sigma2**2)) + a3*np.exp(-(x-x03)**2/(2*sigma3**2)) + c
 
 # Channel 0
-x = np.array(range(545, 650))
-y = TT21_Chn0[545:650]
+x = np.array(range(500, 700))
+y = TT21_Chn0[500:700]
 # curve fit
 popt0, pcov0 = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5, 0])
 
@@ -67,8 +67,8 @@ plt.savefig(IMAGE_PATH/'TT_21_Chn0.png')
 plt.show()
 
 # Channel 1
-x = np.array(range(545, 700))
-y = TT21_Chn1[545:700]
+x = np.array(range(500, 700))
+y = TT21_Chn1[500:700]
 # curve fit
 popt1, pcov1 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
 
@@ -86,8 +86,8 @@ plt.savefig(IMAGE_PATH/'TT_21_Chn1.png')
 plt.show()
 
 # Channel 2
-x = np.array(range(545, 700))
-y = TT21_Chn2[545:700]
+x = np.array(range(500, 700))
+y = TT21_Chn2[500:700]
 # curve fit
 popt2, pcov2 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
 
@@ -176,7 +176,7 @@ plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy (keV)')
 plt.text(565, 5600, f'E = ({m2:.2f} ± {errors2[0]:.2f}* Chn + {c2:.2f}) ± {errors2[1]:.2f}', fontsize=10)
-plt.savefig(IMAGE_PATH/'TT_21_Chn2_calib.png')
+plt.savefig('TT_21_Chn2_calib.png')
 plt.show()
 
 print(f'Calibração_2: E = ({m2:.2f} ± {errors2[0]:.2f}) * Chn + {c2:.2f} ± {errors2[1]:.2f}')
