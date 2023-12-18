@@ -1,12 +1,7 @@
-
 % RUN in terminal (without bibliography):
 % pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
-% limpar:
-% latexmk -c
-
 
 \documentclass{article}
-\input{./preamble}
 
 \author{
     \begin{tabular}{rl}
@@ -15,7 +10,141 @@
     \end{tabular}
 }
 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=6mm,bottom=15mm,left=6mm,right=6mm,marginparwidth=1.55cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{makecell}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{pdflscape}
+\usepackage{makeidx}
+% \usepackage{tocbibind}
+\providecommand{\tightlist}{\relax}
+\usepackage{tocloft}
+\renewcommand{\cftsecindent}{0em}
+\renewcommand{\cftsubsecindent}{1em}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{\itshape}
+\setlength{\cftsubsecnumwidth}{0em}
 
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref} % Remove "pdftex" option here
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{xkeyval}
+%\usepackage{minted}
+%\usemintedstyle{manni}
+\usepackage{listings}
+\usepackage{amssymb}
+
+
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{adjustbox}
+\usepackage{sidecap}
+\usepackage{graphicx}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{calc, 3d, arrows}
+
+
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    frame=tb,
+    framexleftmargin=2em,
+    xleftmargin=2em,
+}
+
+
+%\usepackage{fontspec}
+
+%\setmonofont{Fira Code}
+
+\fancyhf{}
+\cfoot{\thepage}
+\fancyhf{} % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % Remove the header rule line
+\cfoot{\thepage} % Set the page number in the center of the footer
+
+\pagestyle{fancy} % Apply the fancy page style
+
+\setlength\columnsep{20pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\makeatletter
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  anchorcolor=black,
+  citecolor=cyan,
+  filecolor=cyan,
+  menucolor=cyan,
+  urlcolor=cyan,
+  bookmarksopen=true,
+  bookmarksnumbered=true
+}
+
+\makeindex
+
+
+\title{\vspace{-13mm}\includegraphics[width=15mm,scale=3]{../images/IST_Logo.png}\\ \vspace{0mm}
+LFEUI - Investigation Proposal \\ {\fontsize{24}{16}Detection of Li in Technological Materials through Nuclear Reactions} \vspace{-5mm}}
+\date{November 2023}
+
+\usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+\usepackage[OT1]{fontenc}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+
+
+\usepackage[style=numeric]{biblatex} % Choose your desired citation style
+\addbibresource{../references/prop.bib} % Specify your .bib file
+
+\setlist[enumerate]{itemsep=3pt}
 
 \begin{document}
 
@@ -75,9 +204,9 @@ This detection method is based on the nuclear reaction between the element we wa
 \label{eq:reaction}
 \end{equation}
 
-The reaction results in the production of a $\ce{^8Be}$ nucleus which then rapidly decays into two alpha particles. These are the particles we detect.
+Before the emission of the reaction products, the reaction leads to the formation of a $\ce{^8Be}$ compound nucleus (intermediate state), which then rapidly decays into two alpha particles. These are the particles we detect.
 
-According to the incident proton's energy and the scattering angle of the detectors ($\theta = 165 $ degrees) we were able to use the NRA Calculator \cite{NRAEnergyCalc} to calculate the energy of the alpha particles resulting from the reaction as well as it's $Q$ value:
+According to the incident proton's energy ($E_p = 2.7 $ MeV) and the scattering angle of the detectors ($\theta = 165 $ degrees) we were able to use the NRA Calculator \cite{NRAEnergyCalc} to calculate the energy of the alpha particles resulting from the reaction as well as it's $Q$ value:
 
 \begin{equation}
 \begin{split}
@@ -97,10 +226,9 @@ The formula this website uses to compute the energies is on the page 382 of the 
 The experimental set-up consists of a Tandem accelerator, a beam line with an electromagnet and a chamber with both the samples and the detectors.
 The accelerator produces a beam of protons with a kinetic energy of up to 5 MeV which is deviated by the electromagnet and hits the sample. 
 The electromagnets deflect particles with different angles according to their charge-to-mass ratio and, with that, allows us to remove any unwanted particles from the beam and only let the protons pass through.
-The detectors used are silicon detectors - these detect charged particles through the ionization they produce in the silicon.
+The detectors used are silicon based detectors - these detect the energy of incident charged particles through the ionisation they produce in the silicon.
 
-In addition, they are connected to a electronic system that amplifies the signal and sends it to a computer where we
-can see the results.
+In addition, they are connected to a electronic system that amplifies and formats the electric signal arising from individual interaction events and sends it to a multichannel analyser where we can see the collected energy spectra.
 
 The beam line is under a vacuum of around $10^{-7}$ mbar in order to avoid the protons colliding with other particles and losing energy. 
 They reach the sample with the specified kinetic energy and cause a nuclear reaction whose products are the charged particles detected.
@@ -117,8 +245,7 @@ Note: We use a tandem accelerator, so the image should have 2 tubes inside the a
 
 \paragraph{Samples}
 
-We are going to work with two different Lithium-7 samples: one of them is a glass sample composed of silicon, boron and
-lithium and the other one is a implant sample, which is a thin layer of lithium implanted in a silicon substrate.
+We are going to work with two different Lithium-7 samples: one of them is a glass sample composed of silicon, boron and lithium and the other ones will be silicon substrates implanted with $\ce{^7Li}$.
 
 \paragraph{WorkPlan}
 
@@ -127,7 +254,7 @@ evolve the following steps:
 
 \begin{enumerate}
   \item Accelerator Startup;
-  \item Calibration of the detectors with a sample of known composition;
+  \item Channel-energy calibration of the detection system with an alpha source of known composition;
   \item Obtaining the energy spectrums of both samples with the appropriate beam energy;
   \item Analysis of the results.
 \end{enumerate}
@@ -169,7 +296,7 @@ Results Discussion & To be arranged & 4h \\ \hline
 \end{tabular}
 \end{table}
 
-\section{Expected Results}
+\section{Expected results}
 
 We will obtain the energy spectrum of the alpha particles resulting from the reaction between the protons and the
 samples. 
@@ -177,20 +304,20 @@ For the glass samples, we expect to see a profile due to the particles that come
 therefore have lost different amounts of energy. In the implant samples, we expect to see a peak at the energy corresponding
 to the energy of the alpha particles produced by the reaction.
 In both cases, the samples are composed by other types of atoms such as silicon and boron, which will also emit charged
-particles. By obtaining the expected energy spectrums we can infer the presence of Li in the samples. If possible we will also try
-to quantify the amount of Li present by analyzing the amount of energy deposited in the spectrums.
+particles. By obtaining the expected energy spectra we can infer the presence of Li in the samples. If possible we will also try
+to quantify the amount of Li present by analysing the yield of the $\ce{^7Li}$(p,$\ce{^4He})\ce{^4He}$ nuclear reaction.
 
-\paragraph*{Energy Values} The alpha particles are supposed to have the energies calculated in equation \ref{eq:energies} ($E_{\alpha_1}$ and $E_{\alpha_2}$). 
-In the glass sample, we expect to see an energy profile before each peak and in the implant sample we only expect to see the peaks.
+\paragraph*{Energy Values} %The alpha particles are supposed to have the energies calculated in equation \ref{eq:energies} ($E_{\alpha_1}$ and $E_{\alpha_2}$). 
+From the glass sample we expect to see a continuous nuclear reaction yield and from the implanted samples we only expect to see well defined nuclear reaction yields
 
 \paragraph{}
 
-Other phenomena such as Rutherford Backscattering and Elastic Scattering are also expected to occur. These are responsible for energy peaks in both sample's spectra at lower than the expected energy values.
+Other interaction phenomena such as Rutherford Backscattering and Elastic Scattering will also be visible in the spectra. These are responsible for energy peaks in both sample's spectra at lower than the expected energy values.
 
 \section{Concluding remarks}
 
-By identifying the presence of light isotopes at low energies ($<5$MeV), we achieve a practical method to evaluate the presence and the amount of these light isotopes in technological materials.
-Until now, the only way to do this was through atomic spectroscopy, which, besides not being able to detect the presence of light isotopes, is a much more complex and expensive method.
+By identifying the presence of light isotopes at low energies ($<5$ MeV), we achieve a practical method to evaluate the presence and the amount of these light isotopes in technological materials.
+Until now, the only way to do this was through atomic spectroscopy techniques, which, besides not being able to detect the presence of lighter elements, they also present lower sensitivities for elemental quantification.
 
 \printbibliography
 \nocite{*}
