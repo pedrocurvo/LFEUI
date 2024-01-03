@@ -64,7 +64,7 @@ y = TT21_Chn0[500:700]
 popt0, pcov0 = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5, 0])
 
 plt.figure()
-plt.plot(TT21_Chn0, label='Chnannel 0')
+plt.plot(TT21_Chn0, label='Channel 0')
 plt.plot(x, gaussian(x, *popt0), label='Chnannel 0 fit')
 plt.title('Fit channel 0')
 plt.legend()
