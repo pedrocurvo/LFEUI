@@ -9,6 +9,10 @@ CALIB_FILE = Path('data/calibration.csv')
 # Load the calibration data
 calibration_data = pd.read_csv(CALIB_FILE)
 
+# Define Gaussian function
+def gaussian(x, a, x0, sigma, c=0):
+    return a*np.exp(-(x-x0)**2/(2*sigma**2)) + c
+
 # -----------------------------------------------------------------------------
 # Calibration function for channel 0
 m0 = calibration_data['m'].to_numpy()[0]
