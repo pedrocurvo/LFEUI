@@ -66,7 +66,7 @@ TT27_Chn2 = reader(TT_27_PATH / 'CH2@N6781_21198_Espectrum_TT_27_20231207_160722
 
 # Plotting the data
 
-# TT_20
+# TT_20 -> 2048 bins, IGNORAR
 plt.figure()
 plt.plot(TT20_Chn0, label='Chnannel 0')
 plt.plot(TT20_Chn1, label='Channel 1')
@@ -79,7 +79,7 @@ plt.ylabel('Counts')
 plt.savefig(IMAGE_PATH/'TT_20.png')    
 plt.show()
 
-# TT_21
+# TT_21 -> 1024 bins, 10min de aquisição
 plt.figure()
 plt.plot(TT21_Chn0, label='Chnannel 0')
 plt.plot(TT21_Chn1, label='Channel 1')
@@ -92,7 +92,7 @@ plt.ylabel('Counts')
 plt.savefig(IMAGE_PATH/'TT_21.png')
 plt.show()
 
-# TT_22
+# TT_22 -> Error
 plt.figure()
 plt.plot(TT22_Chn0, label='Chnannel 0')
 plt.plot(TT22_Chn1, label='Channel 1')
@@ -105,7 +105,7 @@ plt.ylabel('Counts')
 plt.savefig(IMAGE_PATH/'TT_22.png')
 plt.show()
 
-# TT_23
+# TT_23 -> 1024 bins, 2mC (LiF)
 plt.figure()
 plt.plot(TT23_Chn0, label='Chnannel 0')
 plt.plot(TT23_Chn1, label='Channel 1')
@@ -118,7 +118,7 @@ plt.ylabel('Counts')
 plt.savefig(IMAGE_PATH/'TT_23.png')
 plt.show()
 
-# TT_24
+# TT_24 -> 1024 bins, 2mC (LiAlO2)
 plt.figure()
 plt.plot(TT24_Chn0, label='Chnannel 0')
 plt.plot(TT24_Chn1, label='Channel 1')
@@ -131,7 +131,7 @@ plt.ylabel('Counts')
 plt.savefig(IMAGE_PATH/'TT_24.png')
 plt.show()
 
-# TT_25
+# TT_25 -> 1024 bins, 2mC (Li Implantado em Al)
 plt.figure()
 plt.plot(TT25_Chn0, label='Chnannel 0')
 plt.plot(TT25_Chn1, label='Channel 1')
