@@ -5,6 +5,7 @@ from scipy.optimize import curve_fit
 from pathlib import Path
 from reader import reader
 import pandas as pd
+from tabulate import tabulate
 
 # -----------------------------------------------------------------------------
 # Define paths
@@ -62,6 +63,7 @@ x = np.array(range(500, 700))
 y = TT21_Chn0[500:700]
 # curve fit
 popt0, pcov0 = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5, 0])
+ercov0 = np.sqrt(np.diag(pcov0))
 
 plt.figure()
 plt.plot(TT21_Chn0, label='Channel 0')
@@ -76,12 +78,22 @@ plt.ylim(1, 1e2)
 plt.savefig(IMAGE_PATH/'TT_21_Chn0.png')
 # plt.show()
 
+
+info = [
+    ['a1', 'x01', 'sigma1', 'a2', 'x02', 'sigma2', 'a3', 'x03', 'sigma3', 'c'],
+    [f'{popt0[0]:.2f} ± {ercov0[0]:.2f}', f'{popt0[1]:.2f} ± {ercov0[1]:.2f}', f'{popt0[2]:.2f} ± {ercov0[2]:.2f}', f'{popt0[3]:.2f} ± {ercov0[3]:.2f}', f'{popt0[4]:.2f} ± {ercov0[4]:.2f}', f'{popt0[5]:.2f} ± {ercov0[5]:.2f}', f'{popt0[6]:.2f} ± {ercov0[6]:.2f}', f'{popt0[7]:.2f} ± {ercov0[7]:.2f}', f'{popt0[8]:.2f} ± {ercov0[8]:.2f}', f'{popt0[9]:.2f} ± {ercov0[9]:.2f}']
+]
+
+print(tabulate([['Channel 0']]))
+print(tabulate(info, headers='firstrow', tablefmt='fancy_grid'))
+
 # -----------------------------------------------------------------------------
 # Channel 1
 x = np.array(range(500, 700))
 y = TT21_Chn1[500:700]
 # curve fit
 popt1, pcov1 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+ercov1 = np.sqrt(np.diag(pcov1))
 
 plt.figure()
 plt.plot(TT21_Chn1, label='Chnannel 1')
@@ -96,12 +108,21 @@ plt.ylim(1, 1e2)
 plt.savefig(IMAGE_PATH/'TT_21_Chn1.png')
 # plt.show()
 
+info = [
+    ['a1', 'x01', 'sigma1', 'a2', 'x02', 'sigma2', 'a3', 'x03', 'sigma3', 'c'],
+    [f'{popt1[0]:.2f} ± {ercov1[0]:.2f}', f'{popt1[1]:.2f} ± {ercov1[1]:.2f}', f'{popt1[2]:.2f} ± {ercov1[2]:.2f}', f'{popt1[3]:.2f} ± {ercov1[3]:.2f}', f'{popt1[4]:.2f} ± {ercov1[4]:.2f}', f'{popt1[5]:.2f} ± {ercov1[5]:.2f}', f'{popt1[6]:.2f} ± {ercov1[6]:.2f}', f'{popt1[7]:.2f} ± {ercov1[7]:.2f}', f'{popt1[8]:.2f} ± {ercov1[8]:.2f}', f'{popt1[9]:.2f} ± {ercov1[9]:.2f}']
+]
+
+print(tabulate([['Channel 1']]))
+print(tabulate(info, headers='firstrow', tablefmt='fancy_grid'))
+
 # -----------------------------------------------------------------------------
 # Channel 2
 x = np.array(range(500, 700))
 y = TT21_Chn2[500:700]
 # curve fit
 popt2, pcov2 = curve_fit(gaussian, x, y, p0=[90, 565, 5, 70, 605, 5, 70, 640, 5, 0])
+ercov2 = np.sqrt(np.diag(pcov2))
 
 plt.figure()
 plt.plot(TT21_Chn2, label='Chnannel 2')
@@ -115,6 +136,14 @@ plt.xlim(500, 700)
 plt.ylim(1, 1e2)
 plt.savefig(IMAGE_PATH/'TT_21_Chn2.png')
 # plt.show()
+
+info = [
+    ['a1', 'x01', 'sigma1', 'a2', 'x02', 'sigma2', 'a3', 'x03', 'sigma3', 'c'],
+    [f'{popt2[0]:.2f} ± {ercov2[0]:.2f}', f'{popt2[1]:.2f} ± {ercov2[1]:.2f}', f'{popt2[2]:.2f} ± {ercov2[2]:.2f}', f'{popt2[3]:.2f} ± {ercov2[3]:.2f}', f'{popt2[4]:.2f} ± {ercov2[4]:.2f}', f'{popt2[5]:.2f} ± {ercov2[5]:.2f}', f'{popt2[6]:.2f} ± {ercov2[6]:.2f}', f'{popt2[7]:.2f} ± {ercov2[7]:.2f}', f'{popt2[8]:.2f} ± {ercov2[8]:.2f}', f'{popt2[9]:.2f} ± {ercov2[9]:.2f}']
+]
+
+print(tabulate([['Channel 2']]))
+print(tabulate(info, headers='firstrow', tablefmt='fancy_grid'))
 
 
 # -----------------------------------------------------------------------------
