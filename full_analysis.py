@@ -805,3 +805,27 @@ print(tabulate(info, tablefmt='fancy_grid'), end='\n\n')
 # Print table for LaTeX
 print('Code for LaTeX\n\n')
 print(tabulate(info, headers='firstrow', tablefmt='latex'), '\n\n')
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Height for LIF and LiAlO2
+# ----------------------------------------------------------------------------------------------------------------------
+# Find max height 
+LiAlO2_Chn0_max = np.max(LiAlO2_Chn0[760:860])
+LIF_Chn0_max = np.max(LIF_Chn0[760:860])
+
+# Print on terminal the results
+print(tabulate([['Height']], tablefmt='fancy_grid'))
+info = [
+    ['Sample', 'Height in Counts'],
+    ['LiAlO2', f'{LiAlO2_Chn0_max:.2f}'],
+    ['LiF', f'{LIF_Chn0_max:.2f}'],
+]
+print(tabulate(info, tablefmt='fancy_grid'), end='\n\n')
+
+# Print table for LaTeX
+print('Code for LaTeX\n\n')
+print(tabulate(info, headers='firstrow', tablefmt='latex'), '\n\n')
+
+
+
