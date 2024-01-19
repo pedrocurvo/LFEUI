@@ -17,10 +17,10 @@ import pandas as pd
 SHOW = False
 
 # Save Pictures 
-SAVE = False
+SAVE = True
 
 # Put Titles
-TITLES = False
+TITLES = True
 
 # Define paths
 # data
