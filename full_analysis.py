@@ -94,9 +94,9 @@ def Detector_Calibration(detector : int = 0, bins : int = 1024) -> np.ndarray:
 # it might be Lithium
 # -----------------------------------------------------------------------------
 plt.figure(figsize=(10, 10))
-plt.plot(LIF_Chn0, label='LiF', alpha=0.5)
-plt.plot(LiAlO2_Chn0, label='LiAlO2', alpha=0.5)
-plt.plot(Implanted_Chn0, label='Implanted', alpha=0.5)
+#plt.plot(LIF_Chn0, label='LiF', alpha=0.5)
+#plt.plot(LiAlO2_Chn0, label='LiAlO2', alpha=0.5)
+#plt.plot(Implanted_Chn0, label='Implanted', alpha=0.5)
 plt.plot(Cal_Chn0, label='Calibration')
 plt.legend()
 if TITLES: plt.title('Overlap')
@@ -262,6 +262,7 @@ for i in range(len(alphas)):
 # Guassian for Channel 0
 x = np.array(range(800, 900))
 y = Implanted_Chn0[800:900]
+
 # curve fit
 popt0, pcov0 = curve_fit(gaussian, x, y, p0=[12, 850, 10])
 errors0 = np.sqrt(np.diag(pcov0))
@@ -630,7 +631,7 @@ c0 = params0[1]
 plt.figure(figsize=(10, 10))
 plt.plot(Xpoints, Ypoints, 'o', label='data')
 plt.plot(Xpoints, linear(Xpoints, *params0), label='fit')
-if TITLES: plt.title('Calibration Channel 0')
+if TITLES: plt.title('Calibration "detector 0"')
 plt.legend()
 plt.xlabel('Channel')
 plt.ylabel('Energy [keV]')
