@@ -1,0 +1,326 @@
+
+% RUN in terminal (without bibliography):
+% pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
+
+% limpar:
+% latexmk -c
+
+\documentclass{article}
+
+\author{
+    \begin{tabular}{rl}
+        Estêvão Gomes (ist1102650) & Sofia Nunes (ist1102633) \\
+        Pedro Curvo (ist1102716) & Salvador Torpes (ist1102474)
+    \end{tabular}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[letterpaper,top=10mm,bottom=15mm,left=10mm,right=10mm,marginparwidth=1.75cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{makecell}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{pdflscape}
+\usepackage{makeidx}
+% \usepackage{tocbibind}
+\providecommand{\tightlist}{\relax}
+\usepackage{tocloft}
+\renewcommand{\cftsecindent}{0em}
+\renewcommand{\cftsubsecindent}{1em}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{\itshape}
+\setlength{\cftsubsecnumwidth}{0em}
+
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref} % Remove "pdftex" option here
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{xkeyval}
+%\usepackage{minted}
+%\usemintedstyle{manni}
+\usepackage{listings}
+\usepackage{amssymb}
+
+
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{adjustbox}
+\usepackage{sidecap}
+\usepackage{graphicx}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{calc, 3d, arrows}
+
+
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    frame=tb,
+    framexleftmargin=2em,
+    xleftmargin=2em,
+}
+
+
+%\usepackage{fontspec}
+
+%\setmonofont{Fira Code}
+
+\fancyhf{}
+\cfoot{\thepage}
+\fancyhf{} % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % Remove the header rule line
+\cfoot{\thepage} % Set the page number in the center of the footer
+
+\pagestyle{fancy} % Apply the fancy page style
+
+\setlength\columnsep{20pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\makeatletter
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  anchorcolor=black,
+  citecolor=cyan,
+  filecolor=cyan,
+  menucolor=cyan,
+  urlcolor=cyan,
+  bookmarksopen=true,
+  bookmarksnumbered=true
+}
+
+\makeindex
+
+
+\title{\vspace{-13mm}\includegraphics[width=15mm,scale=3]{../images/IST_Logo.png}\\ \vspace{5mm}
+LFEUI - Notas Teóricas \vspace{-5mm}}
+\date{30 Novembro 2023}
+
+\usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+\usepackage[OT1]{fontenc}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+
+
+\usepackage[style=numeric]{biblatex} % Choose your desired citation style
+\addbibresource{../references/prop.bib} % Specify your .bib file
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\columnseprule}{0.4pt}
+\tdplotsetmaincoords{70}{110} % Set the viewing angle
+\newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
+\newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
+\newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\maketitle
+
+\vspace{-5mm}
+
+\hrulefill
+
+\begin{multicols}{2}
+
+\section{Acelerador de Partículas}
+
+O acelerador utilizado possui no seu interior um gás.
+
+\section{Lítio}
+
+Vamos trabalhar com o lítio, um elemento altamente reativo, maioritariamente através de reações de oxidação com o vapor de água. 
+A solução para trabalhar com este elemento é usar fontes inertes - uma fonte inerte de lítio consiste em lítio no interior de duas camadas de vidro.
+O vidro é composto por silicatos de boro.
+
+\section{Objetivo}
+
+O objetivo é obter o espetro de emissão de duas fontes diferentes, ambas contendo lítio. 
+
+\section{Reação}
+
+A reação que pretendemos estudar envolve o choque de um átomo de lítio 7 com um protão, que resulta na formação de um átomo de berílio 8 que decai para duas partículas alfa (núcleo de hélio 4) - o decaimento é tão rápido que não é detetado.
+
+\begin{equation}
+    \ce{^7Li + ^1H -> ^8Be -> 2\alpha = 2^4He}
+\end{equation}
+
+Esta reação é idêntica para as duas amostras que vamos estudar.
+
+\subsection*{Valor $Q$ da reação}
+
+O valor $Q$ da reação é a energia libertada na reação - é a energia que as partículas alfa possuem quando são emitidas.
+Calcula-se a partir da diferença de massa entre os reagentes e os produtos da reação:
+
+\begin{equation}
+  \begin{split}
+      Q &= \Delta m c^2 \\
+      &= c^2 \left( m_{\text{reagents}} - m_{\text{products}} \right) \\
+      &= c^2 \left( m_{\ce{^7Li}} + m_{\ce{^1H}} - m_{\ce{^8Be}} \right)
+  \end{split}
+\end{equation}
+    
+
+\section{Processo Experimental}
+
+Queremos obter o espetro energético para perceber qual a energia com que as partículas são emitidas
+
+\section{Montagem Experimental}
+
+Temos um acelerador Tandem de 2.5 MeV, que acelera protões - temos 2 tubos de aceleração em paralelo o que faz com que a tensão à qual os partículas protões são aceleradas possa chegar aos 5 MV. Os dois tubos estão alinhados o que faz com que o protão seja 'duplamente' acelerado.
+Acelerar um protão a 5 MeV significa que a variação de energia cinética do eletrão desde o íncio do tubo (em repouso) até ao seu fim é de 5 MeV - este é o valor da diferença de potencial elétrico entre as duas extremidades/terminais do tubo de aceleração. 
+Este acelerador possui um elevador de tensão - associação de condensadores e resistências que permitem aumentar a tensão.
+
+\paragraph*{Vácuo} O feixe propaga-se ao longo dos dois tubos de aceleração que se encontra sobre um vácuo de $10^{-7}$ mbar. O vácuo é necessário para que as partículas não colidam com moléculas de ar e percam energia.
+Este vácuo é bastante bom sendo possível que existam colisão no caminho apesar de em média o número destas colisões é nulo.
+A este nível de pressão ($10^{-7}$ mbar), existem cerca de $10^9$ moléculas de ar por cm$^3$. Na atmosfera normal (pressão de 1 bar) existem $10^{19}$ moléculas de ar por cm$^3$ - no vácuo intergalático temos 5 moléculas por cm$^3$ - apesar de o vácuo deste vácuo não ser comparável ao do espaço, é um vácuo bastante bom. 
+Para estimar estas quantidades de partículas por cm$^3$ consideramos que a diferença de pressão entre a atmosfera normal e o vácuo e consideramos que o volume de um mol de gás é $22.4$ L/mol na atmosfera normal - isto implica que há uma mol de moléculas por litro - $6.02 \times 10^{23}$ moléculas por litro.
+
+\paragraph*{Eletroímane} No nosso eletroímane, partículas com diferentes racios carga/massa têm ângulos de deflexão diferentes - o ângulo de deflexão é inversamente proporcional ao racio carga/massa. Este elemento é responsável por fazer com que todas as partículas que não os protões que se encontrem no feixe sejam desviadas para fora do feixe e por isso não atingem o sensor. É por isto que existe um grande benefício em ter um detetor não linear - fitração do feixe de partículas.
+
+\paragraph*{Detetores} Vamos usar detetores de silício - a energia de uma partícula incidente no detetor é calculada a partir do número de pares electrão-buraco que são criados no detetor devido à sua passagem.
+
+\paragraph*{Eletrónica} Existe um sistema de eletrónica digital responsável por fazer a leitura dos detetores e por enviar os sinais para o computador onde podemos observar os espetros obtidos.
+
+\section{Amostras}
+
+A atividade envolve o estudo dos espetros provenientes de duas amostras diferentes, ambas contendo lítio - uma amostra que é apenas um vidro composto por silicatos e óxidos e outra que é uma amostra com lítio implantado em silício.
+
+\paragraph*{Implantação} A implantação é o processo de formacação de amostras implantadas - para obter uma amostra de lítio 7 implantado em silício usou-se um feixe de lítio 7 com potência na ordem dos kilovolts - quanto maior a potência do feixe, maior é a profundidade a que o lítio é implantado no silício. 
+Existe um fórmula que nos permite saber a profundidade a que o lítio é implantado no silício em função da potência do feixe de lítio 7 e da densidade do silício.
+
+\paragraph*{Diferenças} O objetivo de estudar estas duas amostras é avaliar a diferença de espetros de emissão de partículas alfa provenientes de lítio 7 em diferentes profundidades.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|w{0.2\linewidth}|w{0.7\linewidth}|}
+\hline
+Amostra & Descrição \\ \hline
+Vidro Normal & Amostra formada por vidro normal com silício, lítio, boro e talvez outros resíduos - o lítio aparece na forma de óxido de lítio de modo a que seja pouco reativo. Esta amaostra é homogénea na sua constituição ao longo de toda a sua espessura uma vez que o vidro é formado diretamente com os elementos. \\ \hline
+Implantada & Amostra obtida através da implatação de uma camada de lítio numa amostra de sílicio (pura) - o que obtemos é uma amostra que nos primeiros nanómetrod e espessura possui lítio e depois apenas possui silício. \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Resultados Esperados}
+
+\paragraph*{Perfis} Um perfil é uma parte contínua do espetro na zona energética anterior aos picos de partículas alfa.
+Esperamos ver isto na amostra de vidro devido às partículas alfa que provém de diferentes profundidades da amostra de vidro.
+Quanto maior for a profundidade, como estamos a falar de partículas carregadas e não de fotões, maior é a energia dissipada para o material durante o percurso. 
+Para partículas emitidas com a mesma energia, quanto maior for a profundidade, menor é a energia com que a partícula é detetada - cria-se um perfil no espetro devido a isto. 
+Como na amostra implantada o lítio está apenas presente numa camada superior muito fina, não esperamos obter um perfil no espetro.
+
+\paragraph*{RBS - Rutherford Backscattering} é um fenómeno no qual as partículas alfa são retrodispaersas para outras direções e por isso possuem energias diferentes. 
+A maior parte das partículas alfa são detetadas com o valor de energia esperada mas podemos ter outras zonas do espetro onde tenhamos partículas alfa com energias diferentes e dispersas devido a este fenómeno.
+
+\paragraph*{Elastic Backscattering} Isto acontece quando um dos protões do feixe incidente é refletido elasticamente na superfície da amostra - o protão é refletido com a mesma energia com que incidiu na amostra e continua a trajetória na mesma direção mas com sentido oposto.
+
+\section{Utilidade}
+
+\begin{enumerate}
+  \item Fusão Nuclear - lítio 6 para produção de neutrões -  usam-se materiais muito enriquecidos em lítio 6;
+  \item Baterias - lítio 7;
+  \item Indústria Farmaceûtica - lítio é utilizado em vários medicamentos;
+\end{enumerate}
+
+\section{Fenómenos}
+
+Existem 3 fenómenos diferentes que acontecem nas nossas amostras quando os seus atómos colidem com os protões do feixe: reação nuclear, RBS e elastic backscattering.
+Cada um destes 3 fenómenos possui uma secção eficaz diferente - a secção eficaz é uma medida da probabilidade de um dado fenómeno acontecer.
+A secção eficaz do RBS e do elastic backscattering são maiores do que a secção eficaz da reação nuclear - isto significa que a probabilidade de um protão colidir com um átomo da amostra e ser refletido é maior do que a probabilidade de um protão colidir com um átomo da amostra e reagir com ele.
+Nos espetros detetados podemos ver uma 'bossa' inicial que corresponde ao RBS e ao elastic backscattering e depois vemos um pico que corresponde à reação nuclear do lítio 7 com o protão.
+A seguinte fórmula é válida para a geometria da nossa experiência, sendo apenas necessário aplicá-la para cada uma das 3 secções eficazes:
+
+\[ A = \left( \frac{q_{\text{beam}}}{e} \right) \Omega \overline{\sigma} (N \Delta x) \]
+
+\section{Pico de Reação Nuclear}
+
+Existem 2 picos teóricos esperados no espetro devido à reação nuclear entre o lítio e o protão.
+O feixe que utilizamos na atividade experimental possui uma energia de 1.3 MeV - a zona de energia dos protões que maximiza a intensidade deste pico é de $[2.5,3]$ MeV, no entanto, não conseguimos alcançar estas energias com o nosso acelerador (apesar de teoricamente serem possíveis). 
+Para além disto estamos também interessados em detetar uma possível presença de boro nas amostras e o boro não reage com protões de tão elevada energia - assim escohemos uma energia onde tanto o lítio como o boro reagem com os protões: 1.3 MeV.
+
+\paragraph*{Cálculo do Valor}
+
+Recorremos ao NRA calculator para calcular o valor dos picos de reação nuclear para o lítio 7 e para o boro 11.
+Usamos 1.3 MeV para os protões incidentes, 165 graus para o ângulo de scattering do detetor e obtivemos os seguintes valores:
+
+\begin{equation}
+\begin{split}
+  E_{\alpha_{0_1}} &= 7.6298 \text{ MeV} \\
+  E_{\alpha_{0_2}} &= 11.0314 \text{ MeV} \\
+  \theta_{\alpha_{0_1}} &= 165 \\
+  \theta_{\alpha_{0_2}} &= 12 \\
+  Q (\ce{^7Li}) &= 17.346 \text{ MeV} \\
+\end{split}
+\label{eq:energiesli}
+\end{equation}
+
+Para o lítio não temos partículas $\alpha_1$ uma vez que: $\alpha_0$ são partículas alfa no estado fundamental e $\alpha_1$ são partículas alfa no estado excitado - a energia que temos no feixe não é suficiente para excitar as partículas alfa e por isso elas apenas são emitidas no estado fundamental.
+Os átomos de hélio 4 são ultra estáveis e o primeiro estado excitado está muito acima do estado fundamental - a energia necessária para excitar as partículas alfa é muito elevada e por isso não temos partículas alfa no estado excitado.
+\paragraph{} Note-se também que o ângulo de scattering para a segunda partícula alfa $\alpha_{0_2}$ é de 12 graus, ângulo no qual não há detetor, logo, apenas vamos detetar um pico de partículas em 7.6298 MeV.
+
+\paragraph*{} Para o boro temos:
+
+\begin{equation}
+\begin{split}
+  E_{\alpha_0} &= 3.7372 \text{ MeV} \\
+  E_{\ce{^8Be}} &= 3.1086 \text{ MeV} \\
+  \theta_{\alpha_0} &= 165 \\
+  \theta_{\ce{Be8}} &= 11 \\
+  Q (\ce{^11Br}) &= 8.591 \text{ MeV} \\
+\end{split}
+\label{eq:energiesBr}
+\end{equation}
+
+
+
+
+\printbibliography
+\nocite{*}
+
+\end{multicols}
+
+\end{document}

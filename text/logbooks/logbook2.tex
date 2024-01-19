@@ -1,0 +1,251 @@
+
+% RUN in terminal (without bibliography):
+% pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
+
+% Limpar:
+% latexmk -c
+
+\documentclass{article}
+
+\author{
+    \begin{tabular}{rl}
+        Estêvão Gomes (ist1102650) & Sofia Nunes (ist1102633) \\
+        Pedro Curvo (ist1102716) & Salvador Torpes (ist1102474)
+    \end{tabular}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=10mm,bottom=15mm,left=10mm,right=10mm,marginparwidth=1.75cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{makecell}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{pdflscape}
+\usepackage{makeidx}
+% \usepackage{tocbibind}
+\providecommand{\tightlist}{\relax}
+\usepackage{tocloft}
+\renewcommand{\cftsecindent}{0em}
+\renewcommand{\cftsubsecindent}{1em}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{\itshape}
+\setlength{\cftsubsecnumwidth}{0em}
+
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref} % Remove "pdftex" option here
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{xkeyval}
+%\usepackage{minted}
+%\usemintedstyle{manni}
+\usepackage{listings}
+\usepackage{amssymb}
+
+
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{adjustbox}
+\usepackage{sidecap}
+\usepackage{graphicx}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{calc, 3d, arrows}
+
+
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    frame=tb,
+    framexleftmargin=2em,
+    xleftmargin=2em,
+}
+
+
+%\usepackage{fontspec}
+
+%\setmonofont{Fira Code}
+
+\fancyhf{}
+\cfoot{\thepage}
+\fancyhf{} % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % Remove the header rule line
+\cfoot{\thepage} % Set the page number in the center of the footer
+
+\pagestyle{fancy} % Apply the fancy page style
+
+\setlength\columnsep{20pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\makeatletter
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  anchorcolor=black,
+  citecolor=cyan,
+  filecolor=cyan,
+  menucolor=cyan,
+  urlcolor=cyan,
+  bookmarksopen=true,
+  bookmarksnumbered=true
+}
+
+\makeindex
+
+
+\title{\vspace{-13mm}\includegraphics[width=15mm,scale=3]{../images/IST_Logo.png}\\ \vspace{5mm}
+LFEUI - Logbook 2\vspace{-5mm}}
+\date{7 December 2023}
+
+\usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+\usepackage[OT1]{fontenc}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+
+
+\usepackage[style=numeric]{biblatex} % Choose your desired citation style
+\addbibresource{../references/prop.bib} % Specify your .bib file
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\columnseprule}{0.4pt}
+\tdplotsetmaincoords{70}{110} % Set the viewing angle
+\newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
+\newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
+\newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\maketitle
+
+\vspace{-5mm}
+
+\hrulefill
+
+\vspace{5mm}
+
+We arrived at Centro Tecnológico e Nuclear at 9:30 AM in the 9$^{\text{th}}$ of December to meet with investigators Rodrigo Mateus and Norberto Catarino.
+
+\section{Samples}
+
+We started by discussing the samples that we will be using during the day.
+In the previous session, we had already concluded that there would be two different types of samples: glass samples with lithium in their composition and also implanted samples. The latter consists of a thin layer of lithium implanted in an aluminium substrate.
+As for the glass samples, they are not available and we will simply use three different samples, each one with a different substance/material whose composition varies from sample to sample.
+
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|w{2cm}|w{4cm}|w{3cm}|}
+\hline
+Samples & Description & Composition \\ \hline
+% 1 & Lithium battery & $\ce{Li}$ \\ \hline
+1 & Lithium fluoride & $\ce{LiF}$ \\ \hline
+2 & Lithium aluminate & $\ce{LiAlO2}$ \\ \hline
+3 & Implanted sample & $\ce{Li}$ implanted in $\ce{Al}$ \\ \hline
+\end{tabular}
+\caption{Samples used in the experiment}
+\label{tab:samples}
+\end{table}
+
+We displayed the samples in a sample holder with the given order: in the lowest position the implanted sample, followed by lithium aluminate ($\ce{LiAlO2}$) and finally lithium fluoride ($\ce{LiF}$). From top to bottom, we have samples 1 to 3 in the sample holder.
+
+\section{Experimental Procedure}
+
+First of all, we assembled the source holder like it is described in the previous section. So that we can do a calibration from the number of counts per channel to energy, we put an additional americium-241 source on the holder.
+Using a ruler, we measured the distance between the samples. We put the sample holder on a support and afterwards both of them inside a chamber. A vacuum machine was connected to the accelerator to reduce the pressure inside the accelerator. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|w{2cm}|w{4cm}|}
+\hline
+Samples & Distance [cm]  \\ \hline
+Americium & 1.5  \\ \hline
+LiF & 3.3 \\ \hline
+LiAlO2 & 4.8  \\ \hline
+Implanted Li-7 in Al & 6.0  \\ \hline
+\end{tabular}
+\caption{Distance between the samples in the sample holder}
+\label{tab:samples}
+\end{table}
+
+Afterwards, we started the procedure to turn on the TANDEM accelerator, according to the manuals provided. Firstly, we turned on the $\ce{H^+}$ duoplasmatron source of the accelerator as well as the magnets and lenses. Then, we opened the valves to propagate the vacuum throughout the entirety of the tubes.
+
+In the control panel, we adjusted the angles of the lenses and the magnets current according to the manual, so that the beam would reach the samples. Then we turned on the camera next to the samples to observe if it was well adjusted. The beam wasn't rightly centred so we adjusted the angles and positions of the lenses until it was in the correct position. Finally, we used a collimator with a 2mm radius to collimate the beam. 
+    
+We used a computer program to obtain the spectra of the different sources. To start, we obtained the spectrum of americium-241 in order to do a calibration posteriorly. Then we obtained the spectra of the different sources. The multichannel analyzer (MCA) utilized to acquire data was gradually set to 70 V and the angle between the top two detectors was 165º. 
+
+After obtaining the lithium spectra, we obtained the spectrum of borum as well. Borum can be detected in the middle of the sources since the encapsulation of the sources is made of boric acid. 
+
+
+
+eletromagnets adjustment: there are 3 magnets:
+- low energy switch magnet current - 1.7 A;
+- high energy switch 90º magnet current - 13.2 A;
+- second high energy switch magnet current - 14.4 A;
+1315 keV
+
+proton source adjustment - 15 A 
+
+Temos um feiexe e conseguimos ver. ajustamos o feixe com os campos magenticos e com o steering e com o electrostatic steerer no fim. Depois colimamos o nosso feixe através de metodos oftalmologicos. (colimador de raio 2mm)
+
+Eletronica de aquisicao de dados a 70V, evoluindo gradualmente.O angulo entre os detetores é 165º (valor q usamos no calculo da energia)
+Offset porta alvos - 15mm
+Escrever a distancia entre as amostras no alvo
+
+Virar po porta alvos de costas para ter o americio241 de frente de modo a calibrar
+
+Desviar a amostra 18 mm de modo a ter a 1 amostra a contar de cima. Mudar o modo de aquisição de tempo para carga (tempo para a fonte radioativa para calibrar e carga para as fontes com litio para o detetar)
+O encapsulamento das amostras é feito com acido borico pelo que a detecao de boro é no meio das amostras (pastilhas).
+
+We left CTN at around 16:45 PM.
+
+
+
+\printbibliography
+\nocite{*}
+
+\end{document}
