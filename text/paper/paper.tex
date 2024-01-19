@@ -216,20 +216,21 @@ The reaction first leads to the formation of a $\ce{^{12}C}$ compound nucleus wh
 \subsection{Energy Peaks and Energy Profile}
     \label{sec:energy_profile_peak}
 
-In what comes to the phenomena we expect to see in the collected energy spectrum's, the first one are the energy values themselves. Both the alpha particles and the other byproducts are emitted with a specific energy just after the nuclear reaction, and this energy can be computed according to the reaction itself and also to the beam's energy. This calculus will be done in section \ref{sec:theoreticalvalues}. 
+Regarding the phenomena expected in the collected energy spectrum, the primary aspect involves the energy values. Both the alpha particles and other byproducts are emitted with distinct energies immediately following the nuclear reaction. These energies can be calculated based on the reaction and the beam's energy. The computation process will be detailed in section \ref{sec:theoreticalvalues}.
 \paragraph{}
 Firstly, we expect to see intensity peaks on the spectrum on these specific energies. However, we must take into account the fact that before arriving at the detector, the emitted particles have to go through the other atoms on the sample. As an incident proton comes in, it might react with another proton from the material that sits on its surface but it can also react with one inside it. The byproducts produced inside the sample initially have the energy we compute but do lose part of it as they collide with other particles before reaching the detector. Basically, we must consider the sample's thickness. The bigger the depth at which the reaction takes place, the smaller the energy with whom they are detected because more of it gets dissipated.
-Therefore, this will result in an energy profile - the energy peak will be gradually preceded by less intense peaks due to particles that lost energy on their way to the detector. It is less likely for the particles that are emitted inside the sample to reach the detector than for those who were emitted on its surface since on each collision there is a chance that it's direction might change. This is why the intensity on the energy profile as a steady increase before hitting a maximum value at the energy with whom the particle comes out of the reaction
+Therefore, this will result in an energy profile - the energy peak will be gradually preceded by less intense peaks due to particles that lost energy on their way to the detector. It is less likely for the particles that are emitted inside the sample to reach the detector than for those who were emitted on its surface since on each collision there is a chance that it's direction might change. This is why the intensity on the energy profile as a steady increase before hitting a maximum value at the energy with whom the particle comes out of the reaction.
 \paragraph{}
 We expect this phenomena to be particularly significant in samples where the atom that takes part in the reaction can be found not only at the surface of the sample but also in its depth. Therefore, in implanted samples where the substrate is only a layer, the energy profile will be less evident.
 
 \subsection{Elastic Back-scattering}
+    \label{sec:elastic_back}
 
-One other feature that might occur is elastic back-scattering. This happens when the incoming proton from the accelerator is elastically reflected by the sample and then detected. After the reflection, the energy is the same and this means that there will be an intensity peak located at the selected beam energy.
+Another possible occurrence is elastic back-scattering, where the incoming proton from the accelerator is elastically reflected back by the sample and subsequently detected. During this reflection, the energy remains unchanged, resulting in an intensity peak positioned close to the beam energy selected for our experiment.
 
-\subsection{Rutherford Back scattering}
+o backscattering é todo elástico e um caso particular deste é o de rutherford. O caso particular de rutherford considera os atomos como esferas perfeitas para calcular a secção eficaz deste fenomeno. Em geral, as secções eficazes do backscattering obtém-se experimentalmente e não usamos as de rutherford. O que interessa é que o backscattering elastico como fenomeno e não as suas diferentes secções eficazes. Pileup - o detetor recebe duas partículas de backscattering em simultaneo e assum que é so uma e por isso soma uma contagem com o dobro da energia - A particula emitida no backscattering pode ter diferentes valores de energia de acordo com a colisao elastica entre os dois atomos (a mecanica diz nos como calular a energia com que cada átomo, o incidente e o da amosta à superfície, fica depois da colisão) e por isso a soma da energia de duas também pode estar num dado intervalo. O pico inicial é do ruido eletronico e por isso desconsideramos. Usar detector em vez de channel. 
+A secção eficaz da reação nuclear com o litio varia com a energia do protão incidente. O protão incidente perde energia à medida que percorre a amostra devido ao stopping power da amostra em si e por isso a secção eficaz de reacções que ocorrem mais no interior da amostra é diferente das que ocorrem à sua superfície.
 
-Rutherford back-scattering is a phenomena that occurs when the incoming proton is reflected by the sample but, in this case, the energy is not the same. This means that the proton loses energy on the reflection and therefore the intensity peak will be located at a lower energy than the selected beam energy.
 
 \section{Experimental Procedure}
     \label{sec:experimentalprocedure}
@@ -453,7 +454,7 @@ The calibration equation for channel 0 is:
 
 \begin{equation}
     \begin{split}
-        E[\text{MeV}] &= m_0 \times E[\text{Chn}] + b_0 \\
+        E[\text{keV}] &= m_0 \times E[\text{Chn}] + b_0 \\
         m_0 &= 9.20 \pm 0.06 \\
         b_0 &= 30.22 \pm 34.64
     \end{split}
@@ -471,7 +472,7 @@ The calibration equation for channel 1 is:
 
 \begin{equation}
     \begin{split}
-        E[\text{MeV}] &= m_1 \times E[\text{Chn}] + b_1 \\
+        E[\text{keV}] &= m_1 \times E[\text{Chn}] + b_1 \\
         m_1 &= 8.97 \pm 0.03 \\
         b_1 &= 55.40 \pm 17.53
     \end{split}
@@ -489,26 +490,73 @@ The calibration equation for channel 2 is:
 
 \begin{equation}
     \begin{split}
-        E[\text{MeV}] &= m_2 \times E[\text{Chn}] + b_2 \\
+        E[\text{keV}] &= m_2 \times E[\text{Chn}] + b_2 \\
         m_2 &= 9.07 \pm 0.12 \\
         b_2 &= 48.17 \pm 69.69
     \end{split}
     \label{eq:calib2}
 \end{equation}
 
-\section{ Lithium Fluoride Sample}
+\section{Alpha Peaks}
+For the analysis, we began by calculating the theoretical energy values of the two alphas. 
 
-$\ce{LiF}$
+\begin{center}
+    \label{alfa_peaks}
+    \centering
+    \includegraphics[scale = 0.35]{images/AlphaPeaks.png}
+    \captionof{figure}{Theoretical energy values of the two alfas}
+\end{center}
+
+The energies obtained were 7629.80 kEv and 11031.44 kEv. (FALTA EXPLICAR PERCENTAGENS)
+
+\section{Lithium Fluoride Sample}
+
+The obtained spectrum for the lithium fluoride sample overlapped with the theoretical alpha values is the following:
+
+\begin{center}
+    \label{TT_21}
+    \centering
+    \includegraphics[scale = 0.6]{../images/SampleLiF.png}
+    \captionof{figure}{Spectrum of the $\ce{LiF}$ sample}
+\end{center}
+
+There are three noticeable structures in this spectrum. 
+The first one is a peak around channel 0, followed a less intense one around 100 Chn and a small plateau between 150 and 250 Chn. 
+Lastly there is an evident energy profile that starts at around 300 Chn and goes up to 900 Chn with increasing intensity.
+
+\paragraph*{}
+
+After identifying these structures we used the previous calibration [\ref{sec:calibration}] to convert the channel values into energy values so that we could more effectively analyse the spectrum and its peaks.
+
+
 
 \section{ Lithium Aluminate Sample}
 
-$\ce{LiAlO_2}$
+We obtained the following spectrum for the lithium aluminate sample:
+
+\begin{center}
+    \label{TT_21}
+    \centering
+    \includegraphics[scale = 0.6]{../images/SampleLiAlO2.png}
+    \captionof{figure}{Spectrum of the $\ce{LiAlO_2}$ sample}
+\end{center}
 
 \subsection{Energy Profile}
 
 
 
 \section{Implanted Sample}
+
+The obtained spectrum for the implanted sample was the following:
+
+\begin{center}
+    \label{TT_21}
+    \centering
+    \includegraphics[scale = 0.6]{../images/ImplantedSample.png}
+    \captionof{figure}{Spectrum of the implanted sample}
+\end{center}
+
+
 
 \section{Conclusion}
 
