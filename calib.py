@@ -66,9 +66,9 @@ popt0, pcov0 = curve_fit(gaussian, x, y, p0=[90, 556, 5, 70, 593, 5, 70, 627, 5,
 ercov0 = np.sqrt(np.diag(pcov0))
 
 plt.figure()
-plt.plot(TT21_Chn0, label='Channel 0')
-plt.plot(x, gaussian(x, *popt0), label='Chnannel 0 fit')
-plt.title('Fit channel 0')
+plt.plot(TT21_Chn0, label='Detector 0')
+plt.plot(x, gaussian(x, *popt0), label='Detector 0 fit')
+plt.title('Fit detector 0')
 plt.legend()
 plt.xlabel('Channel')
 plt.yscale('log')
@@ -84,7 +84,7 @@ info = [
     [f'{popt0[0]:.2f} ± {ercov0[0]:.2f}', f'{popt0[1]:.2f} ± {ercov0[1]:.2f}', f'{popt0[2]:.2f} ± {ercov0[2]:.2f}', f'{popt0[3]:.2f} ± {ercov0[3]:.2f}', f'{popt0[4]:.2f} ± {ercov0[4]:.2f}', f'{popt0[5]:.2f} ± {ercov0[5]:.2f}', f'{popt0[6]:.2f} ± {ercov0[6]:.2f}', f'{popt0[7]:.2f} ± {ercov0[7]:.2f}', f'{popt0[8]:.2f} ± {ercov0[8]:.2f}', f'{popt0[9]:.2f} ± {ercov0[9]:.2f}']
 ]
 
-print(tabulate([['Channel 0']]))
+print(tabulate([['Detector 0']]))
 print(tabulate(info, headers='firstrow', tablefmt='fancy_grid'))
 
 # -----------------------------------------------------------------------------

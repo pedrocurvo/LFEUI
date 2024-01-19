@@ -291,7 +291,6 @@ Having this into consideration, we choose a beam energy of $1.3$ MeV for our exp
 After concluding that the best beam energy to work within the previously described conditions is $1.3$ MeV, we now need to obtain theoretical values for their energy. In order to do this, we will use the NRA calculator \cite{NRAEnergyCalc}. This is an online calculator developed by investigators at CTN that allows researchers to compute the $Q$ value of a reaction as well as the energy values and scattering angles of the particles these reactions emit. Considering an incident beam whose protons have $E_p = 1.3$ MeV and a scattering angle of $\theta = 165 ^{\circ}$ of our detector we computed the following values:
 
 \paragraph{Lithium} Firstly, for the reaction \ref{eq:reactionLi}:
-
 \begin{equation}
 \begin{split}
   E_{\alpha_{0_1}} &= 7.6298 \text{ MeV} \\
@@ -308,7 +307,6 @@ $E_{\alpha_{0_1}}$ and $E_{\alpha_{0_2}}$ are the energies of both alpha particl
 Also, we can see that the scattering angle of the second alpha particle is around $12 ^{\circ}$ meaning that it is different from the detector's angle and will not be detected. To sum up, if there is lithium in any sample that reacts with the incoming protons according to \ref{eq:reactionLi}, we expect to detect alpha particles that were emitted with $7.6298 \text{ MeV}$. 
 
 \paragraph{Boron} Secondly, for the reaction \ref{eq:reactionB}:
-
 \begin{equation}
 \begin{split}
   E_{\alpha_0} &= 3.7372 \text{ MeV} \\
@@ -325,7 +323,7 @@ We need to comment these energies.
 \subsection{Procedure}
     \label{sec:procedure}
 
-We started by displaying the samples in a vertical sample holder with the given order: in the lowest position the implanted sample, followed by lithium aluminate ($\ce{LiAlO2}$) and finally lithium fluoride ($\ce{LiF}$). So that we can do a calibration from the number of counts per channel to energy, we put an additional source on the holder just above the lithium fluoride one. Using a ruler, we measured the distance between the samples so that afterwards we could control the lift in order to change the sample on the beam's target.
+We started by displaying the samples in a vertical sample holder with the given order: in the lowest position the implanted sample, followed by lithium aluminate ($\ce{LiAlO2}$) and finally lithium fluoride ($\ce{LiF}$). In order to do a calibration from the number of counts per channel to energy, we added an additional source on the holder just above the lithium fluoride one. Using a pachymeter, we measured the distance between the samples so that afterwards we could control the hight in order to change the sample on the beam's target.
 
 We placed the sample holder on a support and afterwards both of them inside the chamber. A vacuum machine was connected to the accelerator to reduce the pressure inside both the chamber and the beam.
 
@@ -350,7 +348,7 @@ The spectrum obtained for the triple source was the following:
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.35]{../../images/Calib.png}
+    \includegraphics[scale = 0.3]{../../images/Calib.png}
     \captionof{figure}{Spectrum of the Calibration source}
 \end{center}
 
@@ -366,26 +364,24 @@ We separated the spectra of channeldetectors 0, 1 and 2 (2 corresponding to the 
     \ce{ ^{244}Cm -> ^{240}Pu + \alpha}
 \end{equation}
 
-The equation used for the triple gaussian fit is:
+%The equation used for the triple gaussian fit is:
+%\begin{equation}
+%    \begin{split}
+%    f(x) = a_0\exp{\left(-\frac{(x-\mu_0)^2}{\sigma_0}\right)} &+ a_1\exp{\left(-\frac{(x-\mu_1)^2}{\sigma_1}\right)} + \\
+%    &+ a_2\exp{\left(-\frac{(x-\mu_2)^2}{\sigma_2}\right)} + c
+%    \end{split}
+%    \label{eq:califit}
+%\end{equation}
 
 
-\begin{equation}
-    \begin{split}
-    f(x) = a_0\exp{\left(-\frac{(x-\mu_0)^2}{\sigma_0}\right)} &+ a_1\exp{\left(-\frac{(x-\mu_1)^2}{\sigma_1}\right)} + \\
-    &+ a_2\exp{\left(-\frac{(x-\mu_2)^2}{\sigma_2}\right)} + c
-    \end{split}
-    \label{eq:califit}
-\end{equation}
-
-
-We decided to do the analysis only with "detector 0". This anlaysis could be further corroborated using the "detector 1" data.
-Using the triple gaussian, we obtained the following fits for "detector 0":
+We decided to do the analysis only with "detector 0". This analysis could be further corroborated using the "detector 1" data.
+Using the triple gaussian, we obtained the following fit for "detector 0":
 
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.6]{../../images/TT_21_Chn0.png}
-    \captionof{figure}{Channel 0 spectrum fit with [\ref{eq:califit}]}
+    \includegraphics[scale = 0.5]{images/TT_21_Chn0.png}
+    \captionof{figure}{Detector 0 spectrum fit with triple gaussian}
 \end{center}
 
 %\begin{center}
@@ -402,18 +398,18 @@ Using the triple gaussian, we obtained the following fits for "detector 0":
 %    \captionof{figure}{Channel 2 spectrum fit with [\ref{eq:califit}]}
 %\end{center}
 
-The fit parameters for means $\mu_0$, $\mu_1$ and $\mu_2$ in equation [\ref{eq:califit}] represent the energy value of each peak in channels. The computed values for these parameters, as well as the theoretical values of the energy in MeV for the peaks, are organised in the following tables:
+The fit parameters for the means, $\mu_0$, $\mu_1$ and $\mu_2$ obtained from the triple gaussian fit represent the energy value of each peak in channels. The computed values for these parameters, as well as the theoretical values of the energy, in MeV, for the peaks, are organised in the following tables:
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|w{0.8cm}|w{3cm}|w{2cm}|}
 \hline
-Peak & Channel 0 [Chn] & Theoretical Energy [keV] \\ \hline
+Peak & Detector 0 [Chn] & Theoretical Energy [keV] \\ \hline
 1\textsuperscript{st} & $ \mu_0 = 557.00 \pm 0.11 $ & 5156.59 \\ \hline
 2\textsuperscript{nd} & $ \mu_1 = 593.14 \pm 0.10 $ & 5485.56 \\ \hline
 3\textsuperscript{rd} & $ \mu_2 = 627.44 \pm 0.10 $ & 5804.82 \\ \hline
 \end{tabular}
-\caption{Calibration Values for Channel 0}
+\caption{Calibration Values for detector 0}
 \label{tab:calibration0}
 \end{table}
 
@@ -444,12 +440,12 @@ Peak & Channel 0 [Chn] & Theoretical Energy [keV] \\ \hline
 %\end{table}
 
 Using the values in these three tables we now need to compute a calibration equation for each of the channels.
-We plotted the theoretical values of the energy of the three peaks as a function of fit parameters:
+We plotted the theoretical values of the energy of the three peaks as a function of fit parameters:\vspace{-2mm}
 
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.35]{../../images/Chn0_calib_with_Backscattering.png}
+    \includegraphics[scale = 0.3]{../../images/Chn0_calib_with_Backscattering.png}
     \captionof{figure}{Calibration "detector 0"}
 \end{center}
 
@@ -506,7 +502,7 @@ For the analysis, we began by calculating the theoretical energy values of the t
 \begin{center}
     \label{alfa_peaks}
     \centering
-    \includegraphics[scale = 0.35]{../../images/AlphaPeaks.png}
+    \includegraphics[scale = 0.3]{../../images/AlphaPeaks.png}
     \captionof{figure}{Theoretical energy values of the two alfphas}
 \end{center}
 
@@ -522,7 +518,7 @@ we overlapped the expected $\alpha$ energy with the spectrum, and obtained the f
 
 \begin{center}
     \centering
-    \includegraphics[scale = 0.35]{../../images/OverlapLiF_NC.png}
+    \includegraphics[scale = 0.3]{../../images/OverlapLiF_NC.png}
     \captionof{figure}{Spectrum of the $\ce{LiF}$ sample}
 \end{center}
 
@@ -533,7 +529,7 @@ Analysing this spectrum further:
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.4]{../../images/FullAnalysisLiF.png}
+    \includegraphics[scale = 0.3]{../../images/FullAnalysisLiF.png}
     \captionof{figure}{Full Analysis of $\ce{LiF}$ Spectrum}
 \end{center}
 
@@ -550,7 +546,7 @@ We used the calibration again to obtain the Lithium Alimunate energy spectrum ov
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.35]{../../images/OverlapLiAlO2.png}
+    \includegraphics[scale = 0.3]{../../images/OverlapLiAlO2.png}
     \captionof{figure}{Spectrum of the $\ce{LiAlO_2}$ sample}
 \end{center}
 
@@ -560,7 +556,7 @@ If we analyse this spectrum further, we can see the following:
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.4]{../../images/FullAnalysisLiAlO2.png}
+    \includegraphics[scale = 0.3]{../../images/FullAnalysisLiAlO2.png}
     \captionof{figure}{Full Analysis of $\ce{LiAlO_2}$ Spectrum}
 \end{center}
 
@@ -580,7 +576,7 @@ Finally, we used the calibration to obtain the implanted sample energy spectrum 
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.35]{../../images/OverlapImplanted.png}
+    \includegraphics[scale = 0.3]{../../images/OverlapImplanted.png}
     \captionof{figure}{Spectrum of the implanted sample}
 \end{center}
 
@@ -592,7 +588,7 @@ If we analyse the spectrum further:
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.4]{../../images/FullAnalysisImplanted.png}
+    \includegraphics[scale = 0.3]{../../images/FullAnalysisImplanted.png}
     \captionof{figure}{Full Analysis of the Implanted Sample Spectrum}
 \end{center}
 
@@ -602,32 +598,48 @@ However, this sample is implanted only on the surface, therefore there is no ene
 
 
 \section{Quantitative Analysis}
-According to INSERT CHU REFERENCE it is possible to calculate the concentration of the element in the sample using with the following equations:
-\begin{equation}
-    N\tau_i=\frac{H_i}{\sigma (E_i)\Omega Q}
-\end{equation}
-\begin{equation}
-    N\Delta x=\frac{A}{\sigma (E_i)\Omega Q}
-\end{equation}
+According to INSERT CHU REFERENCE it is possible to calculate the concentration of the element in the sample using with the following equations:\\
+\begin{minipage}[t]{0.5\linewidth-0.5em} % some separation
+    \vspace{0pt} % anchor for [t]
+    \vspace{\dimexpr\ht\strutbox-\topskip}% remove excess glue
+    \begin{equation}
+        N\tau_i=\frac{H_i}{\sigma (E_i)\Omega Q}
+    \end{equation}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.5\linewidth-0.5em} % some separation
+    \vspace{0pt} % anchor for [t]
+    \begin{equation}
+        N\Delta x=\frac{A}{\sigma (E_i)\Omega Q}
+    \end{equation}
+\end{minipage}
 
-Where $N\tau_i$ are $N\Delta x$ different values of the superfitial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \cdot$\#channels.\\
-$H_i$ is the number of counts in a FAT MUDAR spectrum peak (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector, $Q$ is the max charge acquisition divided by $e$.
+\vspace{4mm}
+
+Where $N\tau_i$ are $N\Delta x$ different values of the superfitial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \times$\#channels.
+
+$H_i$ is the hight, in number of counts, in a spectrum with accumulation (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector, $Q$ is the max charge acquisition divided by $e$.
 
 With this we get:\\
-APROXIMACOES:\\
-implanted: $1\times10^{17}$ atoms/cm$^2$\\
-$\ce{LiAlO2}$: $3\times10^{18}$ atoms/cm$^2$\\
-etc...\\
+Implanted Sample: $N\Delta x = 9.25\times 10^{16}$ atoms per cm$^2$\\
+$\ce{LiAlO2}$: $N\tau_i=4.31\times10^{17}$ atoms per cm$^2$\\
+$\ce{LiF}$: $N\tau_i=1.15\times10^{18}$ atoms per cm$^2$
+
+For comparison:
+$\ce{LiAlO2}$: $N\Delta x=2.15\times10^{19}$ atoms per cm$^2$\\
+$\ce{LiF}$: $N\Delta x=5.71\times10^{19}$ atoms per cm$^2$\\
+From this, it is noticeable that the implanted sample has around 200x less Lithium than the $\ce{LiAlO2}$ and 600x less Lithium than the $\ce{LiF}$, as expected.
 
 \section{Conclusion}
+To conclude, we ended up with a successful experiment. We were able to detect the presence of lithium in all the 
+analysed samples trough nuclear reactions. Furthermore, we managed to go beyond our proposal and extimate the amount of 
+lithium in each sample.
+The results obtained were in accordance with the values obtained from the Danish Institute that provided the samples. MEIO INVENTADO
 
 \section{Perguntas}
 
 \begin{enumerate}
     \item Para a calibração, colocamos os valores e as incertezas de todos os 10 parâmetros para cada channel ou apenas colocamos as médias ?
 \end{enumerate}
-
-\section{}
 
 
 \printbibliography
