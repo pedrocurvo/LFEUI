@@ -17,7 +17,7 @@ import pandas as pd
 SHOW = False
 
 # Save Pictures 
-SAVE = True
+SAVE = False
 
 # Put Titles
 TITLES = True
@@ -94,9 +94,9 @@ def Detector_Calibration(detector : int = 0, bins : int = 1024) -> np.ndarray:
 # it might be Lithium
 # -----------------------------------------------------------------------------
 plt.figure(figsize=(10, 10))
-#plt.plot(LIF_Chn0, label='LiF', alpha=0.5)
-#plt.plot(LiAlO2_Chn0, label='LiAlO2', alpha=0.5)
-#plt.plot(Implanted_Chn0, label='Implanted', alpha=0.5)
+plt.plot(LIF_Chn0, label='LiF', alpha=0.5)
+plt.plot(LiAlO2_Chn0, label='LiAlO2', alpha=0.5)
+plt.plot(Implanted_Chn0, label='Implanted', alpha=0.5)
 plt.plot(Cal_Chn0, label='Calibration')
 plt.legend()
 if TITLES: plt.title('Overlap')
@@ -782,3 +782,26 @@ plt.ylim(0.1, max(Implanted_Chn0))
 if SAVE: plt.savefig(IMAGE_PATH / 'OverlapImplanted_NC.png', dpi=600)
 plt.grid()
 if SHOW: plt.show()
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Area for Implanted Sample
+# ----------------------------------------------------------------------------------------------------------------------
+# Define the x range
+X = 800
+Y = 950
+total_area_Ch0 = np.sum(Implanted_Chn0[X:Y])
+total_area_Ch1 = np.sum(Implanted_Chn1[X:Y])
+total_area_Ch2 = np.sum(Implanted_Chn2[900:1000])
+# Print on terminal the results
+print(tabulate([['Area of Sample with Implanted Li']], tablefmt='fancy_grid'))
+info = [
+    ['Detector', 'Area in Counts'],
+    [0, f'{total_area_Ch0:.2f}'],
+    [1, f'{total_area_Ch1:.2f}'],
+    [2, f'{total_area_Ch1:.2f}']
+]
+print(tabulate(info, tablefmt='fancy_grid'), end='\n\n')
+
+# Print table for LaTeX
+print('Code for LaTeX\n\n')
+print(tabulate(info, headers='firstrow', tablefmt='latex'), '\n\n')
