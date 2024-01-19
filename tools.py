@@ -23,6 +23,12 @@ error_b0 = calibration_data['error_c'].to_numpy()[0]
 def calibration_Ch0(x):
     return m0 * x + b0
 
+def inverse_calibration_Ch0(x):
+    return (x - b0) / m0
+
+def inverse_error_Ch0(x):
+    return abs(-(1 / m0)) * error_b0 + abs((b0 - x) / m0 ** 2) * error_m0
+
 def error_Ch0(bins, error_bins):
     '''Error propagation for the calibration function of channel 0.
     The error is calculated using the errorpropagation website,
@@ -38,6 +44,9 @@ error_b1 = calibration_data['error_c'].to_numpy()[1]
 def calibration_Ch1(x):
     return m1 * x + b1
 
+def inverse_calibration_Ch1(x):
+    return (x - b1) / m1
+
 def error_Ch1(bins, error_bins):
     return abs(m1) * error_bins + abs(bins) * error_m1 + error_b1
 
@@ -50,6 +59,12 @@ error_b2 = calibration_data['error_c'].to_numpy()[2]
 def calibration_Ch2(x):
     return m2 * x + b2
 
+def inverse_calibration_Ch2(x):
+    return (x - b2) / m2
+
 def error_Ch2(bins, error_bins):
     return abs(m2) * error_bins + abs(bins) * error_m2 + error_b2
+
+def lorentzian(x, x0, gamma):
+    return gamma / (2 * np.pi) * (1 / ((x - x0)**2 + (gamma / 2)**2))
 

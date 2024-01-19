@@ -155,6 +155,11 @@ x0 = np.array([popt0[1], popt0[4], popt0[7]])
 x1 = np.array([popt1[1], popt1[4], popt1[7]])
 x2 = np.array([popt2[1], popt2[4], popt2[7]])
 
+# Write Points to a CSV file
+df = pd.DataFrame({'Points':x0, 'Energy': energy})
+df.to_csv(DATA_PATH/'calibration_points_Detector0.csv', index=False)
+
+
 # Standard deviation from the gaussian fit
 sigma0 = np.array([popt0[2], popt0[5], popt0[8]])
 sigma1 = np.array([popt1[2], popt1[5], popt1[8]])
