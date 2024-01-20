@@ -1,5 +1,6 @@
 % RUN in terminal (without bibliography):
 % pdflatex -output-directory=/Users/salvatorpes/Desktop/LFEUI/text/proposta /Users/salvatorpes/Desktop/LFEUI/text/proposta/prop.tex
+% pdflatex -output-directory=/Users/estevao/Desktop/Universidade/LFEUI/text/paper /Users/estevao/Desktop/Universidade/LFEUI/text/paper/paper.tex
 
 \documentclass{article}
 
@@ -174,11 +175,11 @@
 \begin{abstract}
   \par 
   The following paper describes a scientific research on the ability to detect the presence of lithium ($\ce{^7Li}$) through the byproducts of nuclear reactions.
-  The research was conducted in three different samples: lithium fluoride ($\ce{LiF}$), lithium aluminate ($\ce{LiAlO2}$) and an implanted sample. 
+  The research was conducted in 3 different samples: lithium fluoride ($\ce{LiF}$), lithium aluminate ($\ce{LiAlO2}$) and an implanted sample. 
   Energy spectra were obtained for each sample with a tandem accelerator and $1.3$ MeV protons.
   Considering the theoretical values for the nuclear reaction of $\ce{^7Li}$, we were able to identify the presence of lithium in all samples.
-  Also, some other phenomena were observed, such as back-scattering, pile-up and energy profiling.
-  Finally, using the information on each spectrum, we computed the quantity of lithium in each sample.
+  Some other phenomena were observed, such as back-scattering, pile-up and energy profiling.
+  Finally, using the information on each spectrum, we estimated the quantity of lithium in each sample.
 \end{abstract}
 \vspace{-0.1cm}
 
@@ -190,25 +191,25 @@
 \section{Main Goal}
     \label{sec:maingoal}
 
-Our main goal is to develop a scientific research project alongside three senior investigators from CTN (Centro Tecnológico e Nuclear), Rodrigo Mateus, Rui Silva and Norberto Catarino.
+Our main goal is to develop a scientific research project alongside 3 senior investigators from CTN (Centro Tecnológico e Nuclear), Rodrigo Mateus, Rui Silva and Norberto Catarino.
 Our project will be focused on the detection of Li in technological materials through nuclear reactions. The main motivation for this project is to study and develop a detection technique for elements such as Li with high sensitivity. 
 
 \section{Scientific Background}
     \label{sec:scientificbackground}
 
-The development of this scientific procedure is based on a physics phenomenon: nuclear reactions. We have an accelerator in order to allow protons with specific energy to collide with the sample whose composition we are interested in studying. The protons will undergo a nuclear reaction with the ones in the samples and byproducts of these reaction will be released. These byproducts are charged particles and we can detect their energy spectrum. Through the analysis of it, we want to infer what were the elements with whom they reacted on the sample and what is their composition percentage.
+The development of this scientific procedure is based on nuclear reactions. We have an accelerator that allows protons to reach high energyies in order to collide with the sample whose composition we are interested in studying. The protons will undergo a nuclear reaction with the nuclei in the samples and byproducts of these reaction will be released. These are charged particles that we can detect and quantify through their energy spectrum.
 
 \subsection{Nuclear Reaction}
     \label{sec:nuclearreactions}
 
-The main nuclear reaction in which we are interested is the one between $\ce{^7Li}$ and an incoming proton on the beam:
+The main nuclear reaction we are interested in is between $\ce{^7Li}$ and an incoming proton from the beam:
 
 \begin{equation}
   \ce{^7Li + ^1H -> ^8Be -> 2\alpha}
 \label{eq:reactionLi}
 \end{equation}
 
-Before the emission of the reaction products, the reaction leads to the formation of a $\ce{^8Be}$ compound nucleus (intermediate state), which then rapidly decays into two alpha particles. These are the particles we detect. An alpha particle is a helium nucleus, composed of two protons and two neutrons.
+Before the emission of the reaction products, the reaction leads to an intermediate state, a $\ce{^8Be}$ compound nucleus, which then rapidly decays into two alpha particles that we can detect.% An alpha particle is a helium nucleus, composed of two protons and two neutrons. %toda a gente sabe o que é uma particula alpha valhamedeus
 
 \paragraph{} 
 
@@ -227,7 +228,7 @@ The reaction first leads to the formation of a $\ce{^{12}C}$ compound nucleus wh
 Regarding the phenomena expected in the collected energy spectrum, the primary aspect involves the energy values. Both the alpha particles and other byproducts are emitted with distinct energies immediately following the nuclear reaction. These energies can be calculated based on the reaction and the beam's energy. The computation process will be detailed in section \ref{sec:theoreticalvalues}.
 \paragraph{}
 Firstly, we expect to see intensity peaks on the spectrum on these specific energies. However, we must take into account the fact that before arriving at the detector, the emitted particles have to go through the other atoms on the sample. As an incident proton comes in, it might react with another proton from the material that sits on its surface but it can also react with one inside it. The byproducts produced inside the sample initially have the energy we compute but do lose part of it as they collide with other particles before reaching the detector. Basically, we must consider the sample's thickness. The bigger the depth at which the reaction takes place, the smaller the energy with whom they are detected because more of it gets dissipated.
-Therefore, this will result in an energy profile - the energy peak will be gradually preceded by less intense peaks due to particles that lost energy on their way to the detector. It is less likely for the particles that are emitted inside the sample to reach the detector than for those who were emitted on its surface since on each collision there is a chance that it's direction might change. This is why the intensity on the energy profile as a steady increase before hitting a maximum value at the energy with whom the particle comes out of the reaction.
+Therefore, this will result in an energy profile - the energy peak will be gradually preceded by less intense peaks due to particles that lost energy on their way to the detector. It is less likely for the particles that are emitted inside the sample to reach the detector than for those who were emitted on its surface since on each collision there is a chance that it's direction might change. This is why the intensity on the energy profile has a steady increase before hitting a maximum value at the energy with whom the particle comes out of the reaction.
 \paragraph{}
 We expect this phenomena to be particularly significant in samples where the atom that takes part in the reaction can be found not only at the surface of the sample but also in its depth. Therefore, in implanted samples where the substrate is only a layer, the energy profile will be less evident.
 
@@ -315,10 +316,10 @@ After concluding that the best beam energy to work within the previously describ
 \paragraph{Lithium} Firstly, for the reaction \ref{eq:reactionLi}:
 \begin{equation}
 \begin{split}
-  E_{\alpha_{0_1}} &= 7.6298 \text{ MeV} \\
-  E_{\alpha_{0_2}} &= 11.0314 \text{ MeV} \\
+  E_{\alpha_{0_1}} &= 7.630 \text{ MeV} \\
+  E_{\alpha_{0_2}} &= 11.031 \text{ MeV} \\
   \theta_{\alpha_{0_1}} &= 165 ^{\circ} \\
-  \theta_{\alpha_{0_2}} &= 12 ^{\circ} \\
+  \theta_{\alpha_{0_2}} &= 12.4 ^{\circ} \\
   Q (\ce{^7Li}) &= 17.346 \text{ MeV} \\
 \end{split}
 \label{eq:energiesli}
@@ -331,10 +332,10 @@ Also, we can see that the scattering angle of the second alpha particle is aroun
 \paragraph{Boron} Secondly, for the reaction \ref{eq:reactionB}:
 \begin{equation}
 \begin{split}
-  E_{\alpha_0} &= 3.7372 \text{ MeV} \\
-  E_{\ce{^8Be}} &= 3.1086 \text{ MeV} \\
+  E_{\alpha_0} &= 3.749 \text{ MeV} \\
+  E_{\ce{^8Be}} &= 3.1116 \text{ MeV} \\
   \theta_{\alpha_0} &= 165 ^{\circ} \\
-  \theta_{\ce{^8Be}} &= 11 ^{\circ}\\
+  \theta_{\ce{^8Be}} &= 11.6 ^{\circ}\\
   Q (\ce{^11Br}) &= 8.591 \text{ MeV} \\
 \end{split}
 \label{eq:energiesBr}
@@ -374,7 +375,8 @@ The spectrum obtained for the triple source was the following:
     \captionof{figure}{Spectrum of the Calibration source}
 \end{center}
 
-We separated the spectra of channel/detectors 0, 1 and 2 (2 corresponding to the bottom one) and used a triple gaussian sum function to fit on the three energy peaks. According to theory, the first peak corresponds to the decay of plutonium into uranium, the second of americium into neptunium and the third of curium into plutonium. The decay equations are:
+We separated the spectra of 
+detectors 0, 1 and 2 (2 corresponding to the bottom one) and used a triple gaussian sum function to fit on the three energy peaks. According to theory, the first peak corresponds to the decay of plutonium into uranium, the second of americium into neptunium and the third of curium into plutonium. The decay equations are:
 
 \begin{equation}
     \ce{ ^{239}Pu -> ^{235}U + \alpha} 
@@ -396,8 +398,8 @@ We separated the spectra of channel/detectors 0, 1 and 2 (2 corresponding to the
 %\end{equation}
 
 
-We decided to do the analysis only with detector/channel 0. This analysis could be further corroborated using the "detector 1" data.
-Using the triple gaussian, we obtained the following fit for channel 0:
+We decided to do the analysis only with detector 0. This analysis could be further corroborated using detector 1 data.
+Using the triple gaussian, we obtained the following fit for this detector:
 
 \begin{center}
     \label{TT_21}
@@ -461,7 +463,7 @@ Peak & Detector 0 [Chn] & Theoretical Energy [keV] \\ \hline
 %\label{tab:calibration2}
 %\end{table}
 
-Using the values in the table we now have to compute a calibration equation for channel/detector 0.
+Using the values in the table we now have to compute a calibration equation for detector 0.
 We plotted the theoretical values of the energy of the three peaks as a function of fit parameters:\vspace{-2mm}
 
 \begin{center}
@@ -471,7 +473,7 @@ We plotted the theoretical values of the energy of the three peaks as a function
     \captionof{figure}{Calibration "detector 0"}
 \end{center}
 
-The calibration equation for channel 0 is:
+The calibration equation for the aforementioned detector is:
 
 \begin{equation}
     \begin{split}
@@ -641,11 +643,11 @@ According to \cite{chu1978backscattering} it is possible to calculate the concen
 
 \vspace{4mm}
 
-Where $N\tau_i$ are $N\Delta x$ different values for the superficial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \times$ \# channels.
+Where $N\tau_i$ are $N\Delta x$ different values for the superficial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \times$ \#channels.
 
-$H_i$ is the height, in counts, on a spectrum with accumulation (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector and $Q$ is the max charge acquisition divided by $e$.
+$H_i$ is the height, in counts, on a spectrum with accumulation (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector and $Q$ is the max charge acquisition divided by $e$.\\
 
-With this we get:\\
+With this we get:
 
 Implanted Sample: $N\Delta x = 9.25\times 10^{16}$ atoms per cm$^2$\\
 $\ce{LiAlO2}$: $N\tau_i=4.31\times10^{17}$ atoms per cm$^2$\\
