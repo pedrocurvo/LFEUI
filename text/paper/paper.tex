@@ -144,8 +144,8 @@
 
 
 
-\usepackage[style=numeric]{biblatex} % Choose your desired citation style
-\addbibresource{../references/prop.bib} % Specify your .bib file
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{paper.bib}
 
 \setlist[enumerate]{itemsep=3pt}
 
@@ -676,8 +676,9 @@ We were able to detect the presence of lithium in all the samples.
 Furthermore, we managed to go beyond our proposal and estimate the amount of lithium in each sample.
 % The results obtained were in accordance with the values obtained from the Danish Institute that provided the samples. MEIO INVENTADO
 
-\printbibliography
 \nocite{*}
+\printbibliography
+
 
 \end{multicols}
 
