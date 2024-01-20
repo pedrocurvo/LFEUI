@@ -17,10 +17,10 @@ import pandas as pd
 SHOW = False
 
 # Save Pictures 
-SAVE = False
+SAVE = True
 
 # Put Titles
-TITLES = True
+TITLES = False
 
 # Define paths
 # data
@@ -93,7 +93,7 @@ def Detector_Calibration(detector : int = 0, bins : int = 1024) -> np.ndarray:
 # calibration, so if we see peaks above the calibration peaks, we know that
 # it might be Lithium
 # -----------------------------------------------------------------------------
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 plt.plot(LIF_Chn0, label='LiF', alpha=0.5)
 plt.plot(LiAlO2_Chn0, label='LiAlO2', alpha=0.5)
 plt.plot(Implanted_Chn0, label='Implanted', alpha=0.5)
@@ -104,8 +104,10 @@ plt.yscale('log')
 plt.xlabel('Channel')
 plt.ylabel('Counts')
 plt.xlim(0, 1024)
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapCalib.png', dpi=600)
+plt.tight_layout()
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapCalib.jpeg', dpi=600)
 if SHOW: plt.show()
 
 
@@ -119,7 +121,7 @@ if SHOW: plt.show()
 # -----------------------------------------------------------------------------
 alphas = pd.read_csv(DATA_PATH / 'alphas.csv') # Load the data
 x = Detector_Calibration(detector=0, bins=1024) # Define the x range
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 plt.vlines(alphas['Energy'], 0, alphas['Percentage'], color='r')
 # Put text on the peaks
 for i in range(len(alphas)):
@@ -129,15 +131,16 @@ if TITLES: plt.title('Alpha peaks')
 plt.xlabel('Energy [keV]')
 plt.ylabel('Percentage (%)')
 plt.xlim(0, 13000)
-if SAVE: plt.savefig(IMAGE_PATH / 'AlphaPeaks.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'AlphaPeaks.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # -----------------------------------------------------------------------------
 # Draw the Lorentzian fit for the peaks
 # -----------------------------------------------------------------------------
 # We will use the Lorentzian function defined in tools.py
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 2048, 2048)
 x = calibration_Ch0(x)
 for i in range(len(alphas)):
@@ -154,21 +157,23 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Percentage (%)')
 plt.xlim(0, 13000)
 plt.legend()
-if SAVE: plt.savefig(IMAGE_PATH / 'PeaksLorentzian.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'PeaksLorentzian.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # -----------------------------------------------------------------------------
 # Overlap the alpha lines with the data to confirm Lithium
 # -----------------------------------------------------------------------------
 # LiF
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 plt.plot(x, LIF_Chn0, label='LiF', color='b', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(LIF_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(LIF_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(LIF_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(LIF_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 x = np.array(range(830, 950))
@@ -201,18 +206,20 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0(1024))
 plt.ylim(0.1, max(LIF_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiF.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiF.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # LiAlO2
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 plt.plot(x, LiAlO2_Chn0, label='LiAlO2', color='orange', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(LiAlO2_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(LiAlO2_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(LiAlO2_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(LiAlO2_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 # Channel 0
@@ -246,18 +253,20 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0(1024))
 plt.ylim(0.1, max(LiAlO2_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiAlO2.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiAlO2.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # Implanted
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 plt.plot(x, Implanted_Chn0, label='Implanted', color='g', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(Implanted_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(Implanted_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(Implanted_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(Implanted_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 x = np.array(range(800, 900))
@@ -291,8 +300,9 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0(1024))
 plt.ylim(0.1, max(Implanted_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapImplanted.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapImplanted.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -315,7 +325,7 @@ x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 
 # Create a new figure
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(10, 8))
 
 # Plot data
 ax.plot(x, LIF_Chn0, label='LiF', color='b', alpha=0.5)
@@ -378,7 +388,7 @@ rectangle = patches.Rectangle(lower_left_corner, width, height, edgecolor='green
 ax.add_patch(rectangle)
 
 # Create a legend handle for the rectangle
-rect_patch_four = patches.Patch(color='green', label='Your Rectangle Label')
+rect_patch_four = patches.Patch(color='green', label='Energy Profile')
 
 # Log Scale in y axis
 ax.set_yscale('log')
@@ -405,8 +415,9 @@ ax.legend(handles=[rect_patch_one, rect_patch_two, rect_patch_three, rect_patch_
 # Show plot
 plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
-if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisLiF.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisLiF.jpeg', dpi=600)
 if SHOW: plt.show()
 
 
@@ -418,7 +429,7 @@ x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 
 # Create a new figure
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(10, 8))
 
 # Plot data
 ax.plot(x, LiAlO2_Chn0, label='LiAlO2', color='orange', alpha=0.5)
@@ -481,7 +492,7 @@ rectangle = patches.Rectangle(lower_left_corner, width, height, edgecolor='green
 ax.add_patch(rectangle)
 
 # Create a legend handle for the rectangle
-rect_patch_four = patches.Patch(color='green', label='Your Rectangle Label')
+rect_patch_four = patches.Patch(color='green', label='Energy Profile')
 
 # Log Scale in y axis
 ax.set_yscale('log')
@@ -507,8 +518,9 @@ ax.legend(handles=[rect_patch_one, rect_patch_two, rect_patch_three, rect_patch_
 # Show plot
 plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
-if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisLiAlO2.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisLiAlO2.jpeg', dpi=600)
 if SHOW: plt.show()
 
 
@@ -520,7 +532,7 @@ x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0(x)
 
 # Create a new figure
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(10, 8))
 
 # Plot data
 ax.plot(x, Implanted_Chn0, label='Implanted', color='green', alpha=0.5)
@@ -594,8 +606,9 @@ ax.legend(handles=[rect_patch_one, rect_patch_two, rect_patch_three, rect_patch_
 # Show plot
 plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
-if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisImplanted.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'FullAnalysisImplanted.jpeg', dpi=600)
 if SHOW: plt.show()
 
 
@@ -628,7 +641,7 @@ errors0 = np.sqrt(np.diag(params_cov0))
 m0 = params0[0]
 c0 = params0[1]
 
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 plt.plot(Xpoints, Ypoints, 'o', label='data')
 plt.plot(Xpoints, linear(Xpoints, *params0), label='fit')
 if TITLES: plt.title('Calibration "detector 0"')
@@ -641,8 +654,8 @@ plt.text(260,
          fontsize=10,
          bbox=dict(facecolor='white',alpha=0.5))
 plt.grid()
-if SAVE: plt.savefig(IMAGE_PATH / 'Chn0_calib_with_Backscattering.png', dpi=600)
-plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'Chn0_calib_with_Backscattering.jpeg', dpi=600)
 if SHOW: plt.show()
 
 
@@ -651,13 +664,14 @@ if SHOW: plt.show()
 # ----------------------------------------------------------------------------------------------------------------------
 calibration_Ch0_Backscattering = lambda x : m0 * x + c0
 # LiF
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0_Backscattering(x)
 plt.plot(x, LIF_Chn0, label='LiF', color='b', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(LIF_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(LIF_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(LIF_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(LIF_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 x = np.array(range(830, 950))
@@ -690,18 +704,20 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0_Backscattering(1024))
 plt.ylim(0.1, max(LIF_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiF_NC.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiF_NC.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # LiAlO2
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0_Backscattering(x)
 plt.plot(x, LiAlO2_Chn0, label='LiAlO2', color='orange', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(LiAlO2_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(LiAlO2_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(LiAlO2_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(LiAlO2_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 # Channel 0
@@ -735,18 +751,20 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0_Backscattering(1024))
 plt.ylim(0.1, max(LiAlO2_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiAlO2_NC.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapLiAlO2_NC.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # Implanted
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 8))
 x = np.linspace(0, 1024, 1024)
 x = calibration_Ch0_Backscattering(x)
 plt.plot(x, Implanted_Chn0, label='Implanted', color='g', alpha=0.5)
 for i in range(len(alphas)):
-    plt.vlines(alphas['Energy'][i], 0, max(Implanted_Chn0), color='r')
-    plt.text(alphas['Energy'][i], np.mean(Implanted_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
+    if alphas['Energy'][i] < calibration_Ch0(1024):
+        plt.vlines(alphas['Energy'][i], 0, max(Implanted_Chn0), color='r')
+        plt.text(alphas['Energy'][i], np.mean(Implanted_Chn0) * 0.9, r'$\alpha_{' + str(i) + '}$', fontsize=15)
 
 # Guassian for Channel 0
 x = np.array(range(800, 900))
@@ -779,8 +797,9 @@ plt.xlabel('Energy [keV]')
 plt.ylabel('Counts')
 plt.xlim(0, calibration_Ch0_Backscattering(1024))
 plt.ylim(0.1, max(Implanted_Chn0))
-if SAVE: plt.savefig(IMAGE_PATH / 'OverlapImplanted_NC.png', dpi=600)
 plt.grid()
+plt.tight_layout()
+if SAVE: plt.savefig(IMAGE_PATH / 'OverlapImplanted_NC.jpeg', dpi=600)
 if SHOW: plt.show()
 
 # ----------------------------------------------------------------------------------------------------------------------
