@@ -173,6 +173,12 @@
 \vspace{-0.1cm}
 \begin{abstract}
   \par 
+  The following paper describes a scientific research on the ability to detect the presence of lithium ($\ce{^7Li}$) through the byproducts of nuclear reactions.
+  The research was conducted in three different samples: lithium fluoride ($\ce{LiF}$), lithium aluminate ($\ce{LiAlO2}$) and an implanted sample. 
+  Energy spectra were obtained for each sample with a tandem accelerator and $1.3$ MeV protons.
+  Considering the theoretical values for the nuclear reaction of $\ce{^7Li}$, we were able to identify the presence of lithium in all samples.
+  Also, some other phenomena were observed, such as back-scattering, pile-up and energy profiling.
+  Finally, using the information on each spectrum, we computed the quantity of lithium in each sample.
 \end{abstract}
 \vspace{-0.1cm}
 
@@ -204,7 +210,9 @@ The main nuclear reaction in which we are interested is the one between $\ce{^7L
 
 Before the emission of the reaction products, the reaction leads to the formation of a $\ce{^8Be}$ compound nucleus (intermediate state), which then rapidly decays into two alpha particles. These are the particles we detect. An alpha particle is a helium nucleus, composed of two protons and two neutrons.
 
-\paragraph{} Some of the samples we are going to work with also include boron and according to the beam energy we use it is possible that the protons lead to a nuclear reaction with the boron atoms in the samples. Therefore, the $\ce{^{11}B}$ reaction with a proton is as follows:
+\paragraph{} 
+
+Some of the samples we are going to work with also include boron and according to the beam energy we use it is possible that the protons lead to a nuclear reaction with the boron atoms in the samples. Therefore, the $\ce{^{11}B}$ reaction with a proton is as follows:
 
 \begin{equation}
   \ce{ ^{11}B + ^1H -> ^{12}C -> ^8Be + \alpha}
@@ -223,14 +231,28 @@ Therefore, this will result in an energy profile - the energy peak will be gradu
 \paragraph{}
 We expect this phenomena to be particularly significant in samples where the atom that takes part in the reaction can be found not only at the surface of the sample but also in its depth. Therefore, in implanted samples where the substrate is only a layer, the energy profile will be less evident.
 
-\subsection{Elastic Back-scattering}
+\subsection{Back-scattering}
     \label{sec:elastic_back}
 
-Another possible occurrence is elastic back-scattering, where the incoming proton from the accelerator is elastically reflected back by the sample and subsequently detected. During this reflection, the energy remains unchanged, resulting in an intensity peak positioned close to the beam energy selected for our experiment.
+Another possible occurrence is back-scattering, where the incoming proton from the accelerator is elastically reflected back by the sample and subsequently detected.
+During this reflection, the energy of the proton and the target is conserved and distributed according to the kinematics of the collision. This will result in a range of energy values for the back-scattered proton.
 
-o backscattering é todo elástico e um caso particular deste é o de rutherford. O caso particular de rutherford considera os atomos como esferas perfeitas para calcular a secção eficaz deste fenomeno. Em geral, as secções eficazes do backscattering obtém-se experimentalmente e não usamos as de rutherford. O que interessa é que o backscattering elastico como fenomeno e não as suas diferentes secções eficazes. Pileup - o detetor recebe duas partículas de backscattering em simultaneo e assum que é so uma e por isso soma uma contagem com o dobro da energia - A particula emitida no backscattering pode ter diferentes valores de energia de acordo com a colisao elastica entre os dois atomos (a mecanica diz nos como calular a energia com que cada átomo, o incidente e o da amosta à superfície, fica depois da colisão) e por isso a soma da energia de duas também pode estar num dado intervalo. O pico inicial é do ruido eletronico e por isso desconsideramos. Usar detector em vez de channel. 
-A secção eficaz da reação nuclear com o litio varia com a energia do protão incidente. O protão incidente perde energia à medida que percorre a amostra devido ao stopping power da amostra em si e por isso a secção eficaz de reacções que ocorrem mais no interior da amostra é diferente das que ocorrem à sua superfície.
+\subsection{Pile-up}
+    \label{sec:pileup}
 
+Pile-up is a phenomenon that is a consequence of the finite time resolution of the detector. It occurs when two particles are detected at the same time and the detector only detects one with the energy doubled. This is a problem because it can lead to the misinterpretation of the data.
+Therefore, we expect that, for very intense energy ranges in the spectrum, the pile-up might be significant. 
+If we have particles emitted with an $[a,b]$ keV energy range, the pile-up will occur in the $[2a,2b]$ keV.
+
+% o backscattering é todo elástico e um caso particular deste é o de rutherford. 
+% O caso particular de rutherford considera os atomos como esferas perfeitas para calcular a secção eficaz deste fenomeno. 
+% Em geral, as secções eficazes do backscattering obtém-se experimentalmente e não usamos as de rutherford. 
+% O que interessa é que o backscattering elastico como fenomeno e não as suas diferentes secções eficazes. 
+% Pileup - o detetor recebe duas partículas de backscattering em simultaneo e assum que é so uma e por isso soma uma contagem com o dobro da energia.
+% A particula emitida no backscattering pode ter diferentes valores de energia de acordo com a colisao elastica entre os dois atomos (a mecanica diz nos como calular a energia com que cada átomo, o incidente e o da amosta à superfície, fica depois da colisão) e por isso a soma da energia de duas também pode estar num dado intervalo. 
+% O pico inicial é do ruido eletronico e por isso desconsideramos. Usar detector em vez de channel. 
+% A secção eficaz da reação nuclear com o litio varia com a energia do protão incidente. 
+% O protão incidente perde energia à medida que percorre a amostra devido ao stopping power da amostra em si e por isso a secção eficaz de reacções que ocorrem mais no interior da amostra é diferente das que ocorrem à sua superfície.
 
 \section{Experimental Procedure}
     \label{sec:experimentalprocedure}
@@ -331,7 +353,7 @@ Afterwards, we started the procedure to turn on the TANDEM accelerator, accordin
 
 In the control panel, we adjusted the angles of the lenses and the magnets current according to the manual, so that the beam would reach the samples. Finally, we used a collimator with a 2mm radius to collimate the beam. 
 
-Finally, we used a computer program to obtain the spectra of the different sources. The multichannel analyzer (MCA) utilized to acquire data was gradually set to 70 V and the angle between the top two detectors was 165º. 
+Finally, we used a computer program to obtain the spectra of the different sources. The multichannel analyzer (MCA) used to acquire data was gradually set to 70 V and the angle between the top two detectors was 165º. 
 
 \section*{Analysis}
 
@@ -352,7 +374,7 @@ The spectrum obtained for the triple source was the following:
     \captionof{figure}{Spectrum of the Calibration source}
 \end{center}
 
-We separated the spectra of channeldetectors 0, 1 and 2 (2 corresponding to the bottom one) and used a triple gaussian sum function to fit on the three3 energy peaks. According to theory, the first peak corresponds to the decay of plutonium into uranium, the second of americium into neptunium and the third peak of curium into plutonium. The decay equations are:
+We separated the spectra of channel/detectors 0, 1 and 2 (2 corresponding to the bottom one) and used a triple gaussian sum function to fit on the three energy peaks. According to theory, the first peak corresponds to the decay of plutonium into uranium, the second of americium into neptunium and the third of curium into plutonium. The decay equations are:
 
 \begin{equation}
     \ce{ ^{239}Pu -> ^{235}U + \alpha} 
@@ -374,13 +396,13 @@ We separated the spectra of channeldetectors 0, 1 and 2 (2 corresponding to the 
 %\end{equation}
 
 
-We decided to do the analysis only with "detector 0". This analysis could be further corroborated using the "detector 1" data.
-Using the triple gaussian, we obtained the following fit for "detector 0":
+We decided to do the analysis only with detector/channel 0. This analysis could be further corroborated using the "detector 1" data.
+Using the triple gaussian, we obtained the following fit for channel 0:
 
 \begin{center}
     \label{TT_21}
     \centering
-    \includegraphics[scale = 0.5]{images/TT_21_Chn0.png}
+    \includegraphics[scale = 0.5]{../../images/TT_21_Chn0.png}
     \captionof{figure}{Detector 0 spectrum fit with triple gaussian}
 \end{center}
 
@@ -439,7 +461,7 @@ Peak & Detector 0 [Chn] & Theoretical Energy [keV] \\ \hline
 %\label{tab:calibration2}
 %\end{table}
 
-Using the values in these three tables we now need to compute a calibration equation for each of the channels.
+Using the values in the table we now have to compute a calibration equation for channel/detector 0.
 We plotted the theoretical values of the energy of the three peaks as a function of fit parameters:\vspace{-2mm}
 
 \begin{center}
@@ -449,7 +471,7 @@ We plotted the theoretical values of the energy of the three peaks as a function
     \captionof{figure}{Calibration "detector 0"}
 \end{center}
 
-The calibration equation for "detector 0" is:
+The calibration equation for channel 0 is:
 
 \begin{equation}
     \begin{split}
@@ -496,24 +518,30 @@ The calibration equation for "detector 0" is:
 %    \label{eq:calib2}
 %\end{equation}
 %
-\section{Alfpha Peaks}
-For the analysis, we began by calculating the theoretical energy values of the two alfphas. 
+
+\section{Alpha Peaks}
+    \label{sec:alphapeaks}
+
+For the analysis, we began by calculating the theoretical energy values of the two alphas. 
+
+DE ONDE VEM ISTO CARAGO? TEMOS DE TER REFERÊNCIAS
 
 \begin{center}
     \label{alfa_peaks}
     \centering
     \includegraphics[scale = 0.3]{../../images/AlphaPeaks.png}
-    \captionof{figure}{Theoretical energy values of the two alfphas}
+    \captionof{figure}{Theoretical energy values of the two alphas}
 \end{center}
 
 The energies obtained were 7629.80 kEv and 11031.44 kEv. (FALTA EXPLICAR PERCENTAGENS)
 For the identification of lithium in our samples, we need to compare the theoretical energy values with the experimental ones.
-Since we know the the emited alpha in our samples is more energetic than the theoretical values, it is expected that the experimental peaks are slightly higher than the theoretical ones.
-If the seamples contains a peak in the proximity of the alpha peaks it shows that the sample contains lithium.
+Since we know the emited alpha in our samples is more energetic than the theoretical values, it is expected that the experimental peaks are slightly higher than the theoretical ones.
+If the samples contains a peak in the proximity of the alpha peaks it shows that the sample contains lithium.
 
 \section{Lithium Fluoride Sample}
+    \label{sec:lif}
 
-For the LiF sample, we used the calibration [\ref*{sec:calibration}] to convert the channel values into energy values.
+For the LiF sample, we used the calibration [\ref{sec:calibration}] to convert the channel values into energy values.
 we overlapped the expected $\alpha$ energy with the spectrum, and obtained the following:
 
 \begin{center}
@@ -523,7 +551,7 @@ we overlapped the expected $\alpha$ energy with the spectrum, and obtained the f
 \end{center}
 
 The experimental $\alpha_0$ is extremely close to the theoretical value, therefore we can confirm the presence of lithium in this sample. 
-Moreover, it is according to the expected hyphotesis that the observed lithium energy is slightly higher than the theoretical value.
+Moreover, it is according to the expected hypothesis that the observed lithium energy is slightly higher than the theoretical value.
 Analysing this spectrum further:
 
 \begin{center}
@@ -534,14 +562,14 @@ Analysing this spectrum further:
 \end{center}
 
 There are three noticeable structures in this spectrum. 
-The first one is a peak around 0 keV, which is just electronic noise. The following structure is backscattering, identified by the barrier of 1146.5 kEv. 
-The backscattering is followed by event pile-up, which happens whenever two particles are detected at the same time and the detector only detects one with the energy doubled.
-The last structure is the lithium peak. The depth of the sample creates the visible energy profile and this procedure is explained in section \ref{sec:energy_profile_peak}.
+The first one is a peak around 0 keV, which is just electronic noise. The following structure is back scattering [\ref{sec:elastic_back}], identified by the barrier of 1146.5 kEv. 
+The back scattering is followed by event pile-up [\ref{sec:pileup}].
+The last structure is the lithium peak. The depth of the sample creates the visible energy profile and this procedure is explained in section [\ref{sec:energy_profile_peak}].
 
+\section{Lithium Aluminate Sample}
+    \label{sec:lialo2}
 
-\section{ Lithium Aluminate Sample}
-
-We used the calibration again to obtain the Lithium Alimunate energy spectrum overlapped with the expected $\alpha$ energy:
+We used the calibration again to obtain the Lithium Aluminate energy spectrum overlapped with the expected $\alpha$ energy:
 
 \begin{center}
     \label{TT_21}
@@ -551,7 +579,7 @@ We used the calibration again to obtain the Lithium Alimunate energy spectrum ov
 \end{center}
 
 The experimental $\alpha_0$ is very similar to the theoretical value, hence we can confirm the presence of lithium in this sample. 
-If we analyse this spectrum further, we can see the following:
+If we analyze this spectrum further, we can see the following:
 
 \begin{center}
     \label{TT_21}
@@ -561,18 +589,15 @@ If we analyse this spectrum further, we can see the following:
 \end{center}
 
 It is evident that the structure of the spectrum follows a similar pattern to the one in the previous sample.
-First, there is electrical noise, followed by backscattering and event pile-up. 
-The backscattering is identified by the barrier of 1150.0 kEv.
-Finally, there is the lithium peak, which has an energy profile as well due to the depth of the sample.
-
-
-\subsection{Energy Profile}
-
-(NÃO DEVIA ESTAR NA TEORIA?)
+First, there is electrical noise, followed by back scattering [\ref{sec:elastic_back}] and event pile-up [\ref{sec:pileup}]. 
+The back scattering is identified by the barrier of 1150.0 keV.
+Finally, there is the lithium peak, which has an energy profile [\ref{sec:energy_profile_peak}] as well due to the depth of the sample.
 
 \section{Implanted Sample}
+    \label{sec:implanted}
 
 Finally, we used the calibration to obtain the implanted sample energy spectrum overlapped with the expected $\alpha$ energy:
+
 \begin{center}
     \label{TT_21}
     \centering
@@ -583,7 +608,7 @@ Finally, we used the calibration to obtain the implanted sample energy spectrum 
 There is a peak in the proximity of the $\alpha_0$ peak, which is the expected lithium peak.
 One more time we can confirm the presence of lithium in this sample.
 
-If we analyse the spectrum further:
+If we analyze the spectrum further:
 
 \begin{center}
     \label{TT_21}
@@ -592,13 +617,14 @@ If we analyse the spectrum further:
     \captionof{figure}{Full Analysis of the Implanted Sample Spectrum}
 \end{center}
 
-Just like before, there is electrical noise, followed by backscattering and event pile-up.
+Just like before, there is electrical noise, followed by back scattering [\ref{sec:elastic_back}] and event pile-up [\ref{sec:pileup}].
 However, this sample is implanted only on the surface, therefore there is no energy profile as expected, since the lithium isn't being detected at different depths.
 
-
-
 \section{Quantitative Analysis}
-According to INSERT CHU REFERENCE it is possible to calculate the concentration of the element in the sample using with the following equations:\\
+    \label{sec:quantitative}
+
+According to \cite{chu1978backscattering} it is possible to calculate the concentration of the element in the samples using with the following equations:
+
 \begin{minipage}[t]{0.5\linewidth-0.5em} % some separation
     \vspace{0pt} % anchor for [t]
     \vspace{\dimexpr\ht\strutbox-\topskip}% remove excess glue
@@ -615,11 +641,12 @@ According to INSERT CHU REFERENCE it is possible to calculate the concentration 
 
 \vspace{4mm}
 
-Where $N\tau_i$ are $N\Delta x$ different values of the superfitial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \times$\#channels.
+Where $N\tau_i$ are $N\Delta x$ different values for the superficial concentration of the element. For comparison, we can approximate $N\Delta x \approx N\tau_i \times$ \# channels.
 
-$H_i$ is the hight, in number of counts, in a spectrum with accumulation (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector, $Q$ is the max charge acquisition divided by $e$.
+$H_i$ is the height, in counts, on a spectrum with accumulation (used in the $\ce{LiAlO2}$ and $\ce{LiF}$ samples), $A$ is the area of a singular peak (used in the implanted sample), $\sigma (E_i) $ is the cross section of the reaction, $\Omega$ is the solid angle of the detector and $Q$ is the max charge acquisition divided by $e$.
 
 With this we get:\\
+
 Implanted Sample: $N\Delta x = 9.25\times 10^{16}$ atoms per cm$^2$\\
 $\ce{LiAlO2}$: $N\tau_i=4.31\times10^{17}$ atoms per cm$^2$\\
 $\ce{LiF}$: $N\tau_i=1.15\times10^{18}$ atoms per cm$^2$
@@ -627,20 +654,16 @@ $\ce{LiF}$: $N\tau_i=1.15\times10^{18}$ atoms per cm$^2$
 For comparison:
 $\ce{LiAlO2}$: $N\Delta x=2.15\times10^{19}$ atoms per cm$^2$\\
 $\ce{LiF}$: $N\Delta x=5.71\times10^{19}$ atoms per cm$^2$\\
+
 From this, it is noticeable that the implanted sample has around 200x less Lithium than the $\ce{LiAlO2}$ and 600x less Lithium than the $\ce{LiF}$, as expected.
 
 \section{Conclusion}
+    \label{sec:conclusion}
+
 To conclude, we ended up with a successful experiment. We were able to detect the presence of lithium in all the 
-analysed samples trough nuclear reactions. Furthermore, we managed to go beyond our proposal and extimate the amount of 
+analysed samples trough nuclear reactions. Furthermore, we managed to go beyond our proposal and estimate the amount of 
 lithium in each sample.
 The results obtained were in accordance with the values obtained from the Danish Institute that provided the samples. MEIO INVENTADO
-
-\section{Perguntas}
-
-\begin{enumerate}
-    \item Para a calibração, colocamos os valores e as incertezas de todos os 10 parâmetros para cada channel ou apenas colocamos as médias ?
-\end{enumerate}
-
 
 \printbibliography
 \nocite{*}
